@@ -9,6 +9,7 @@ import Register from './pages/Register'
 import Login from './pages/Login';
 import Account from './pages/Account';
 import BRShirts from './pages/BRShirts';
+import NationShirts from './pages/NationShirts';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -40,6 +41,10 @@ const router =  createBrowserRouter([
       {
         path: "/brshirts",
         element: <BRShirts />
+      },
+      {
+        path: "/nationshirts",
+        element: <NationShirts />
       },
     ] 
   },
