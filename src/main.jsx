@@ -8,6 +8,7 @@ import UserProvider from "./contexts/UserContext"
 import Register from './pages/Register'
 import Login from './pages/Login';
 import Account from './pages/Account';
+import BRShirts from './pages/BRShirts';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -35,6 +36,10 @@ const router =  createBrowserRouter([
       {
         path: "/account",
         element: <Account />
+      },
+      {
+        path: "/brshirts",
+        element: <BRShirts />
       },
     ] 
   },
