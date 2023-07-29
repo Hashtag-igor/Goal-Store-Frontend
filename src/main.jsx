@@ -11,6 +11,7 @@ import Account from './pages/Account';
 import BRShirts from './pages/BRShirts';
 import NationShirts from './pages/NationShirts';
 import RDMShirts from './pages/RDMShirts';
+import RetroShirts from './pages/RetroShirts';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -50,6 +51,10 @@ const router =  createBrowserRouter([
       {
         path: "/rdmshirts",
         element: <RDMShirts />
+      },
+      {
+        path: "/retroshirts",
+        element: <RetroShirts />
       },
     ] 
   },
