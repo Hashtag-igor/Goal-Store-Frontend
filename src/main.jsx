@@ -12,6 +12,7 @@ import BRShirts from './pages/BRShirts';
 import NationShirts from './pages/NationShirts';
 import RDMShirts from './pages/RDMShirts';
 import RetroShirts from './pages/RetroShirts';
+import SearchPage from './pages/SearchPage';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -52,6 +53,10 @@ const router =  createBrowserRouter([
         path: "/retroshirts",
         element: <RetroShirts />
       },
+      {
+        path: "/search",
+        element: <SearchPage />
+      }
     ] 
   },
 ])
