@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 
 export default function SearchPage() {
   const [searchProducts, setSearchProducts] = useState([]);
   const searchTerm = new URLSearchParams(window.location.search).get("q");
+
+  const navigate = useNavigate()
 
   const fetchProducts = (searchTerm) => {
     fetch(`http://localhost:3001/products/search?q=${searchTerm}`)
@@ -16,6 +19,10 @@ export default function SearchPage() {
       });
   };
 
+  const goToTheProfilePage = (product) => {
+    navigate("/profile", { state: { product } });
+  };
+
   useEffect(() => {
     fetchProducts(searchTerm);
   }, [searchTerm, searchProducts]);
@@ -23,13 +30,13 @@ export default function SearchPage() {
   return (
     <div>
       <h1>Resultados para: {searchTerm}</h1>
-      {searchProducts.map((product, i) => (
-        <div key={i}>
+      {searchProducts.map((products, i) => (
+        <div key={i} onClick={() => goToTheProfilePage(products)}>
           <Card
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            img={product.img}
+            name={products.name}
+            description={products.description}
+            price={products.price}
+            img={products.img}
           />
         </div>
       ))}
