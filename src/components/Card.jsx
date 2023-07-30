@@ -6,7 +6,7 @@ export default function Card({name, description, price, img}) {
             <img style={{width: "250px", height: "250px"}} src={img} alt="" />
             <h3 style={{textAlign: "justify"}}>{name}</h3>
             <p style={{textAlign: "justify"}}>{description}</p>
-            <p>Price: <strong>{price}</strong></p>
+            <p>Preço: R$<strong>{price}</strong></p>
         </div>
     </div>
   )

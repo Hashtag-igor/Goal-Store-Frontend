@@ -23,10 +23,10 @@ export default function Account() {
     <div>
       {userLoggedIn ? (
         <div>
-          <h1>Welcome, {userLoggedIn.name}!</h1>
+          <h1>Bem-Vindo, {userLoggedIn.name}!</h1>
           <p>Email: {userLoggedIn.email}</p>
-          <p>Password: {userLoggedIn.password}</p>
-          <button onClick={handleLogout}>Logout</button> {/* Botão para deslogar */}
+          <p>Senha: {userLoggedIn.password}</p>
+          <button onClick={handleLogout}>Sair</button> {/* Botão para deslogar */}
         </div>
       ) : null}
     </div>

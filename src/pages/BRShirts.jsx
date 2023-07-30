@@ -41,7 +41,7 @@ export default function BRShirts() {
 
   return (
     <div>
-      <h1>BRShirts</h1>
+      <h1>Camisas de Times Brasileiros</h1>
       <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px"}}>
         {camisasFiltradas.map((shirts, i) => (
           <div key={i} onClick={() => goToTheProfilePage(shirts)}>

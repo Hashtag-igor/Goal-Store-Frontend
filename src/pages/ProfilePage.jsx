@@ -19,12 +19,11 @@ export default function ProfilePage() {
 
   return (
     <div>
-      <h1>ProfilePage</h1>
       {selectedProduct && (
         <div>
           <h2>{selectedProduct.name}</h2>
           <p>{selectedProduct.description}</p>
-          <p>Price: {selectedProduct.price}</p>
+          <p>Preço: R${selectedProduct.price}</p>
           <img src={selectedProduct.img} alt={selectedProduct.name} />
         </div>
       )}

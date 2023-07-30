@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div>
       <div style={{backgroundImage: "url(https://www.superstore.com.br/images/lojas/foto-04-gr.jpg)", padding: "400px", backgroundPosition: "center", backgroundSize: "cover"}}>
-        <h1 style={{textAlign: "center", fontSize: "60px", color: "white", fontWeight: "bolder"}}>WELCOME,</h1>
+        <h1 style={{textAlign: "center", fontSize: "60px", color: "white", fontWeight: "bolder"}}>Bem-Vindo,</h1>
       </div>
       <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
         {product.map((products, i) => (

@@ -37,13 +37,13 @@ export default function Navbar() {
 
             {userLoggedIn ? (
               <div style={{width: "20%", display: "flex", justifyContent: "space-around"}}>
-                <Link style={{color: "white"}} to="/cart">Cart</Link>
-                <Link style={{color: "white"}} to="/account">Account</Link>
+                <Link style={{color: "white"}} to="/cart">Carrinho</Link>
+                <Link style={{color: "white"}} to="/account">Conta</Link>
               </div>
             ) : (
               <div style={{width: "20%", display: "flex", justifyContent: "space-around"}}>
-                <Link style={{color: "white"}} to="/register">Register</Link>
-                <Link style={{color: "white"}} to="/login">Login</Link>
+                <Link style={{color: "white"}} to="/register">Registrar-se</Link>
+                <Link style={{color: "white"}} to="/login">Entrar</Link>
               </div>
             )}
           </div>
@@ -51,10 +51,10 @@ export default function Navbar() {
         
         <div style={{width: "100%", padding: "14px 0", backgroundColor: "#0b3f1a", borderBottom: "1px solid #0a3d19",  boxShadow: "3px 2px 2px #093817"}}>
           <div style={{width: "95%", display: "flex", alignItems: "center", justifyContent: "space-evenly", margin: 'auto'}}>
-            <Link style={{color: "white"}} to="/brshirts">Brazilian Teams Shirts</Link>
-            <Link style={{color: "white"}} to="/rdmshirts">Rest of the World</Link>
-            <Link style={{color: "white"}} to="/nationshirts">Nation Team Shirts</Link>
-            <Link style={{color: "white"}} to="/retroshirts">Retro Shirts</Link>
+            <Link style={{color: "white"}} to="/brshirts">Times Brasileiros</Link>
+            <Link style={{color: "white"}} to="/rdmshirts">Resto do Mundo</Link>
+            <Link style={{color: "white"}} to="/nationshirts">Seleções</Link>
+            <Link style={{color: "white"}} to="/retroshirts">Retrô</Link>
           </div>
         </div>
       </ul>

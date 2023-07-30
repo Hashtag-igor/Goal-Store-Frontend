@@ -41,7 +41,7 @@ export default function NationShirts() {
 
   return (
     <div>
-      <h1>BRShirts</h1>
+      <h1>Camisas de Seleções</h1>
       <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px"}}>
         {camisasFiltradas.map((shirts, i) => (
           <div key={i} onClick={() => goToTheProfilePage(shirts)}>
