@@ -20,6 +20,10 @@ export default function Home() {
       });
   };
 
+  const goToTheProfilePage = (product) => {
+    navigate("/profile", { state: { product } });
+  };
+
   useEffect(() => {
     searchProducts(); // Chamada da função aqui
 
@@ -31,7 +35,7 @@ export default function Home() {
       navigate('/login');
     }
   }, [userLoggedIn, location, navigate]);
-
+  
 
   return (
     <div>
@@ -40,7 +44,7 @@ export default function Home() {
       </div>
       <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
         {product.map((products, i) => (
-          <div key={i}>
+          <div key={i} onClick={() => goToTheProfilePage(products)}>
             <Card name={products.name} description={products.description} price={products.price} img={products.img}/>
           </div>
         ))}

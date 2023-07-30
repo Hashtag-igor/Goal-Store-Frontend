@@ -15,6 +15,7 @@ import RetroShirts from './pages/RetroShirts';
 import SearchPage from './pages/SearchPage';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProfilePage from './pages/ProfilePage';
 
 const router =  createBrowserRouter([  
   {
@@ -56,6 +57,10 @@ const router =  createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />
       }
     ] 
   },
