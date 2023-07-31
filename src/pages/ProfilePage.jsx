@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+import { UserContext } from '../contexts/UserContext';
 
 export default function ProfilePage() {
   const location = useLocation();
@@ -8,6 +9,9 @@ export default function ProfilePage() {
   // Estado local para armazenar o produto selecionado
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  // Obtém o contexto do usuário para acessar o estado do carrinho e a função para atualizá-lo
+  const { userCart, addItemToCart, userLoggedIn } = useContext(UserContext);
+
   useEffect(() => {
     // Quando o componente é montado com novos dados, atualiza o estado local
     if (product) {
@@ -15,7 +19,12 @@ export default function ProfilePage() {
     }
   }, [product]);
 
-  console.log(selectedProduct);
+  const handleAddToCart = () => {
+    if (userLoggedIn && selectedProduct) {
+      addItemToCart(selectedProduct);
+      alert('Produto adicionado ao carrinho!');
+    }
+  };
 
   return (
     <div>
@@ -25,11 +34,19 @@ export default function ProfilePage() {
           <p>{selectedProduct.description}</p>
           <p>Preço: R${selectedProduct.price}</p>
           <img src={selectedProduct.img} alt={selectedProduct.name} />
+          {userLoggedIn ? (
+            <button onClick={handleAddToCart}>Adicionar ao carrinho</button>
+          ) : (
+            <p>Faça login para adicionar este item ao carrinho.</p>
+          )}
         </div>
       )}
     </div>
   );
 }
+
+
+
 
 
 

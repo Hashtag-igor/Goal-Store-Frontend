@@ -16,7 +16,7 @@ import SearchPage from './pages/SearchPage';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
-import CartPage from './pages/CarPage';
+import CartPage from './pages/CartPage';
 
 const router =  createBrowserRouter([  
   {
