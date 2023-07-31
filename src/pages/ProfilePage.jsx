@@ -14,10 +14,12 @@ export default function ProfilePage() {
 
   useEffect(() => {
     // Quando o componente é montado com novos dados, atualiza o estado local
+    // console.log('userCart:', userCart);
+    // console.log('userLoggedIn:', userLoggedIn);
     if (product) {
       setSelectedProduct(product);
     }
-  }, [product]);
+  }, [product, userCart, userLoggedIn]);
 
   const handleAddToCart = () => {
     if (userLoggedIn && selectedProduct) {

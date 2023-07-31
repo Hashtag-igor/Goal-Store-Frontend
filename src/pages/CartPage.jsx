@@ -7,10 +7,16 @@ export default function CartPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // console.log('userCart:', userCart);
     if (!userLoggedIn) {
       navigate('/');
     }
-  }, [userLoggedIn, navigate]);
+  }, [userLoggedIn, navigate, userCart]);
+
+  // Adicione a verificação ?? [] para evitar erros
+  const cartItems = userCart ?? [];
+
+  // console.log('cartItems:', cartItems);
 
   const handleCheckout = () => {
     // Implemente a lógica para finalizar a compra aqui
@@ -37,11 +43,12 @@ export default function CartPage() {
       {userLoggedIn ? (
         <div>
           <h1>Carrinho</h1>
-          {userCart.length > 0 ? (
+          {cartItems.length > 0 ? (
             <div>
               <ul>
-                {userCart.map((product, index) => (
+                {cartItems.map((product, index) => (
                   <li key={index}>
+                     <img style={{ width: '250px', height: '250px' }} src={product.img} alt="" />
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
                     <p>Preço: R${product.price}</p>
@@ -58,4 +65,5 @@ export default function CartPage() {
     </div>
   );
 }
+
 
