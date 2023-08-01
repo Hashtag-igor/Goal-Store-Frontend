@@ -1,32 +1,29 @@
+// src/pages/CartPage.jsx
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function CartPage() {
-  const { userLoggedIn, userCart, clearCart, removeItemFromCart } = useContext(UserContext);
+  const { userLoggedIn, userCart, clearUserCart, removeItemFromCart } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // console.log('userCart:', userCart);
     if (!userLoggedIn) {
       navigate('/');
     }
-  }, [userLoggedIn, navigate, userCart]);
+  }, [userLoggedIn, navigate]);
 
-  // Adicione a verificação ?? [] para evitar erros
-  const cartItems = userCart ?? [];
-
-  // console.log('cartItems:', cartItems);
+  const cartItems = userCart || [];
 
   const handleCheckout = () => {
     // Implemente a lógica para finalizar a compra aqui
     // Por exemplo, enviar os itens do carrinho para um servidor e processar o pagamento
-    // Após a conclusão da compra, você pode limpar o carrinho usando a função clearCart
+    // Após a conclusão da compra, você pode limpar o carrinho usando a função clearUserCart
     // Exemplo:
     // sendCartToServer(userCart)
     //   .then((response) => {
     //     if (response.success) {
-    //       clearCart();
+    //       clearUserCart();
     //       navigate('/order-confirmation');
     //     } else {
     //       alert('Ocorreu um erro ao processar a compra. Tente novamente mais tarde.');
@@ -38,8 +35,6 @@ export default function CartPage() {
     //   });
   };
 
-
-  // Função para remover um item do carrinho
   const handleRemoveItem = (index) => {
     removeItemFromCart(index);
   };
@@ -52,13 +47,15 @@ export default function CartPage() {
           {cartItems.length > 0 ? (
             <div>
               <ul>
-                {cartItems.map((product, index) => (
+                {cartItems.map((item, index) => (
                   <li key={index}>
-                     <img style={{ width: '250px', height: '250px' }} src={product.img} alt="" />
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
-                    <p>Preço: R${product.price}</p>
-                    <button onClick={() => handleRemoveItem(index)}>Remover</button> {/* Botão para remover o item */}
+                    <img style={{ width: '250px', height: '250px' }} src={item.img} alt={item.name} />
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <p>Preço: R${item.price}</p>
+                    <p>Tamanho: {item.size}</p>
+                    <p>Quantidade: {item.quantity}</p> {/* Mostra a quantidade selecionada */}
+                    <button onClick={() => handleRemoveItem(index)}>Remover</button>
                   </li>
                 ))}
               </ul>
@@ -72,5 +69,6 @@ export default function CartPage() {
     </div>
   );
 }
+
 
 
