@@ -3,7 +3,7 @@ import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function CartPage() {
-  const { userLoggedIn, userCart, clearCart } = useContext(UserContext);
+  const { userLoggedIn, userCart, clearCart, removeItemFromCart } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,6 +38,12 @@ export default function CartPage() {
     //   });
   };
 
+
+  // Função para remover um item do carrinho
+  const handleRemoveItem = (index) => {
+    removeItemFromCart(index);
+  };
+
   return (
     <div>
       {userLoggedIn ? (
@@ -52,6 +58,7 @@ export default function CartPage() {
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
                     <p>Preço: R${product.price}</p>
+                    <button onClick={() => handleRemoveItem(index)}>Remover</button> {/* Botão para remover o item */}
                   </li>
                 ))}
               </ul>
