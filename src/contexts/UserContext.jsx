@@ -31,22 +31,40 @@ export default function UserProvider({ children }) {
 
   // Função para adicionar um item ao carrinho de compras do usuário
   const addItemToCart = (item) => {
-    if (!userLoggedIn) {
-      return;
-    }
+  if (!userLoggedIn) {
+    return;
+  }
 
-    // Obtenha o carrinho de compras do usuário do Local Storage, ou um array vazio se não existir
-    const storedCart = localStorage.getItem(`userCart_${userLoggedIn._id}`);
-    const cart = storedCart ? JSON.parse(storedCart) : [];
-    
-    // Adicione o novo item ao carrinho e salve-o no Local Storage
-    const updatedCart = [...cart, item];
+  // Verifica se o item já existe no carrinho com o mesmo tamanho
+  const existingCartItem = userCart.find(
+    (cartItem) => cartItem.shirtId === item.shirtId && cartItem.size === item.size
+  );
+
+  if (existingCartItem) {
+    // Se o produto com mesmo tamanho já está no carrinho, atualize a quantidade
+    const updatedCart = userCart.map((cartItem) =>
+      cartItem.shirtId === item.shirtId && cartItem.size === item.size
+        ? { ...cartItem, quantity: cartItem.quantity + item.quantity }
+        : cartItem
+    );
+
+    // Salve o carrinho atualizado no Local Storage
     localStorage.setItem(`userCart_${userLoggedIn._id}`, JSON.stringify(updatedCart));
-  
+
     // Atualize o estado do carrinho no contexto
     setUserCart(updatedCart);
+  } else {
+    // Caso contrário, adicione o novo item ao carrinho
+    const updatedCart = [...userCart, item];
+
+    // Salve o carrinho atualizado no Local Storage
+    localStorage.setItem(`userCart_${userLoggedIn._id}`, JSON.stringify(updatedCart));
+
+    // Atualize o estado do carrinho no contexto
+    setUserCart(updatedCart);
+  }
   };
-  
+
   // Função para remover um item do carrinho de compras do usuário logado
   const removeItemFromCart = (index) => {
     if (!userLoggedIn) {
