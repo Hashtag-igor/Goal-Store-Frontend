@@ -1,5 +1,11 @@
 
-export default function Card({name, description, price, img}) {
+export default function Card({name, description, price, img, onClick}) {
+
+  const goToProfilePage = (event) => {
+    event.stopPropagation();
+    onClick();
+  };
+
   return (
     <div style={{width: "300px", background: "green", height: "400px"}}>
         <div style={{display: "flex", flexDirection: "column", alignItems: "center", width: "90%", margin: "auto"}}>
@@ -7,6 +13,7 @@ export default function Card({name, description, price, img}) {
             <h3 style={{textAlign: "justify"}}>{name}</h3>
             <p style={{textAlign: "justify"}}>{description}</p>
             <p>Price: <strong>{price}</strong></p>
+            <button onClick={goToProfilePage}>Comprar</button>
         </div>
     </div>
   )
