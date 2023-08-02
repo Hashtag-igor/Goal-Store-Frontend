@@ -42,7 +42,7 @@ export default function Home() {
       <div style={{backgroundImage: "url(https://www.superstore.com.br/images/lojas/foto-04-gr.jpg)", padding: "400px", backgroundPosition: "center", backgroundSize: "cover"}}>
         <h1 style={{textAlign: "center", fontSize: "60px", color: "white", fontWeight: "bolder"}}>Bem-Vindo,</h1>
       </div>
-      <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
+      <div style={{width: "90%", display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "50px 0px", margin: "50px auto"}}>
         {product.map((products, i) => (
           <div key={i} onClick={() => goToTheProfilePage(products)}>
             <Card name={products.name} description={products.description} price={products.price} img={products.img}/>
