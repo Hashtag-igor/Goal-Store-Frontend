@@ -44,8 +44,8 @@ export default function Home() {
       </div>
       <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
         {product.map((products, i) => (
-          <div key={i} onClick={() => goToTheProfilePage(products)}>
-            <Card name={products.name} description={products.description} price={products.price} img={products.img}/>
+          <div key={i}>
+            <Card onClick={() => goToTheProfilePage(products)} name={products.name} description={products.description} price={products.price} img={products.img}/>
           </div>
         ))}
       </div>
