@@ -66,11 +66,11 @@ export default function Home() {
       </div>
 
       {/* Nova Coleção */}
-      <div style={{margin: "50px auto"}}> 
+      <div style={{margin: "50px auto", width: "90%"}}> 
         <h1>COLEÇÃO NOVA TEMPORADA</h1>
         <p>- Compre em até 12x no Cartão ou à vista no PIX ou Boleto -</p>
         <Link to="/newcollection">CONFIRA NOSSA COLEÇÃO 2023/24</Link>
-        <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
+        <div style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0", width: '100%'}}>
           {selectedNewCollectionShirts.map((product, i) => (
             <div key={i}>
                 <Card onClick={() => goToTheProfilePage(product)} name={product.name} description={product.description} price={product.price} img={product.img} img_back={product.img_back}/>
@@ -81,11 +81,11 @@ export default function Home() {
 
 
       {/* Camisas Retrô */}
-      <div style={{margin: "50px auto"}}>
+      <div style={{margin: "50px auto", width: "90%"}}>
           <h1>Camisas Retrô</h1>
           <p>- Compre em até 12x no Cartão ou à vista no Boleto -</p>
           <Link to="/retroshirts">CONFIRA NOSSA LINHA RETRÔ</Link>
-          <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
+          <div style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0", width: '100%'}}>
           {selectedRetroShirts.map((product, i) => (
             <div key={i}>
               <Card onClick={() => goToTheProfilePage(product)} name={product.name} description={product.description} price={product.price} img={product.img} img_back={product.img_back}/>
@@ -95,11 +95,11 @@ export default function Home() {
       </div>      
 
       {/* Camisas Da temporada passada */}
-      <div style={{margin: "50px auto"}}>
+      <div style={{margin: "50px auto", width: "90%"}}>
           <h1>Camisas da Temporada Passada</h1>
           <p>- Compre em até 12x no Cartão ou à vista no Boleto -</p>
           <Link to="/retroshirts">CONFIRA A LINHA DA TEMPORADA PASSADA</Link>
-          <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
+          <div style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0", width: '100%'}}>
           {lastSeasonShirts.map((product, i) => (
             <div key={i}>
               <Card onClick={() => goToTheProfilePage(product)} name={product.name} description={product.description} price={product.price} img={product.img} img_back={product.img_back}/>
