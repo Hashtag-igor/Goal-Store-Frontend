@@ -35,7 +35,13 @@ const CardDescription = styled.p`
 
 const CardPrice = styled.p``
 
-export default function Card({ name, description, price, img }) {
+export default function Card({name, description, price, img, onClick}) {
+
+  const goToProfilePage = (event) => {
+    event.stopPropagation();
+    onClick();
+  };
+
   return (
     <CardContainer>
       <CardWrapper>
@@ -43,6 +49,7 @@ export default function Card({ name, description, price, img }) {
         <CardName>{name}</CardName>
         <CardDescription>{description}</CardDescription>
         <CardPrice>Preço: R$<strong>{price}</strong></CardPrice>
+        <button onClick={goToProfilePage}>Comprar</button>
       </CardWrapper>
     </CardContainer>
   );
