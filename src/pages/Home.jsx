@@ -94,8 +94,6 @@ export default function Home() {
         </div>
       </div>
 
-      <div style={{backgroundImage: "url(https://th.bing.com/th/id/R.433bab1fae3960564a64eeceb657fc53?rik=uKgPF%2fIOGkAdwg&riu=http%3a%2f%2fkidutsport.com.br%2fimages%2fbanners%2fpromocional-04.jpg&ehk=DMlGN622qwGywMg5PWZY8KvHsFnnyjZdH1K28qqpsP0%3d&risl=&pid=ImgRaw&r=0)", padding: "300px", backgroundPosition: "center", backgroundSize: "cover"}}></div>      
-
       {/* Camisas Da temporada passada */}
       <div style={{margin: "50px auto"}}>
           <h1>Camisas da Temporada Passada</h1>
@@ -109,6 +107,8 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      <div style={{backgroundImage: "url(https://th.bing.com/th/id/R.433bab1fae3960564a64eeceb657fc53?rik=uKgPF%2fIOGkAdwg&riu=http%3a%2f%2fkidutsport.com.br%2fimages%2fbanners%2fpromocional-04.jpg&ehk=DMlGN622qwGywMg5PWZY8KvHsFnnyjZdH1K28qqpsP0%3d&risl=&pid=ImgRaw&r=0)", padding: "300px", backgroundPosition: "center", backgroundSize: "cover"}}></div>      
     </div>
   );
 }
