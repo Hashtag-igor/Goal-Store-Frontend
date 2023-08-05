@@ -27,10 +27,11 @@ const CardContainer = styled.div`
   height: 480px;
   background: linear-gradient(to top, #ffffff, #0c441c4b, #0c441c);
   border-radius: 4px;
+  border-bottom: 4px solid #fff;
 
   &:hover{
     background: #ffffff;
-    border-bottom: 3px solid #0c441c;
+    border-bottom: 4px solid #0c441c;
     cursor: pointer;
   }
 `
