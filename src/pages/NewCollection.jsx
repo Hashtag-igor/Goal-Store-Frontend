@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from "../components/Card"
+import { Container, Wrapper, MapContainer, MapWrapper, Title } from "../styles/SharedFiles"
 
 export default function NewCollection() {
   const [RDMShirts, setRDMShirts] = useState([]);
@@ -39,14 +40,17 @@ export default function NewCollection() {
       : [];
 
   return (
-    <div>
-      <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px", margin: "50px 0"}}>
-        {camisasFiltradas.map((shirts, i) => (
-          <div key={i} onClick={() => goToTheProfilePage(shirts)}>
-            <Card name={shirts.name} description={shirts.description} price={shirts.price} img={shirts.img}/>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Container>
+      <Wrapper>
+        <Title>Coleção da Nova Temporada</Title>
+        <MapContainer>
+          {camisasFiltradas.map((shirts, i) => (
+            <MapWrapper key={i} onClick={() => goToTheProfilePage(shirts)}>
+              <Card name={shirts.name} description={shirts.description} price={shirts.price} img={shirts.img} />
+            </MapWrapper>
+          ))}
+        </MapContainer>
+      </Wrapper>
+    </Container>
   );
 }
