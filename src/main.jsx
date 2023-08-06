@@ -13,6 +13,7 @@ import NationShirts from './pages/NationShirts';
 import RDMShirts from './pages/RDMShirts';
 import RetroShirts from './pages/RetroShirts';
 import SearchPage from './pages/SearchPage';
+import OldCollection from "./pages/OldCollection";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
@@ -71,6 +72,10 @@ const router =  createBrowserRouter([
       {
         path: "/newcollection",
         element: <NewCollection />
+      },
+      {
+        path: "/oldcollection",
+        element: <OldCollection />
       }
     ] 
   },

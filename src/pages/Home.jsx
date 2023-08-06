@@ -12,6 +12,7 @@ export const MapContainer = styled.div`
   flex-wrap: wrap;
   margin: 50px 0;
   width: 100%;
+  gap: 30px 0;
 `
 const CollectionButton = styled.button`
   background-color: #f82e56;
@@ -157,7 +158,7 @@ export default function Home() {
           <CollectionDescriptionContainer>
             <CollectionDescriptionTitle>CAMISAS DA TEMPORADA PASSADA</CollectionDescriptionTitle>
             <CollectionDescriptionParagraph>- Compre em até 12x no Cartão ou à vista no Boleto -</CollectionDescriptionParagraph>
-            <CollectionButton><Link to="/retroshirts">CONFIRA A LINHA DA TEMPORADA PASSADA</Link></CollectionButton>
+            <CollectionButton><Link to="/oldcollection">CONFIRA A LINHA DA TEMPORADA PASSADA</Link></CollectionButton>
           </CollectionDescriptionContainer>
           <MapContainer>
           {lastSeasonShirts.map((product, i) => (
