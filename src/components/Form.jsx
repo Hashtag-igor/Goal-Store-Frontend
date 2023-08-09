@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import Account from '../pages/Account';
+import { FormButton, FormLink, FormButtonArea, FormContainer, FormInput, FormInputContainer, FormLabel, FormTitle, FormWrapper} from "../styles/FormStyles"
 
 export default function Form({ isLogin }) {
   const [name, setName] = useState('');
@@ -11,7 +12,7 @@ export default function Form({ isLogin }) {
   const [usuarioAtual, setUsuarioAtual] = useState(null);
   const [loading, setLoading] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const { setUsuarios, setAllUsersData, usuarios, updateUserLoggedIn } = useContext(UserContext);
+  const { setUsuarios, setAllUsersData, updateUserLoggedIn, usuarios } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -73,7 +74,6 @@ export default function Form({ isLogin }) {
       alert('Ocorreu um erro ao buscar usuários. Tente novamente mais tarde.');
     }
   };
-  
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -160,19 +160,27 @@ export default function Form({ isLogin }) {
       {isLogin ? (
         <>
           {!autenticado ? (
-            <form onSubmit={handleLogin}>
-              <label>Email</label>
-              <input type="email" onChange={(e) => setEmail(e.target.value)} />
-              <hr />
-              <label>Senha</label>
-              <input type="text" onChange={(e) => setPassword(e.target.value)} />
-              <hr />
-              <button>Enviar</button>
-            </form>
+            <FormContainer onSubmit={handleLogin}>
+              <FormTitle>Entrar</FormTitle>
+              <FormWrapper>
+                <FormInputContainer>
+                  <FormLabel>Email</FormLabel>
+                  <FormInput type="email" value={email} placeholder='E-mail' onChange={(e) => setEmail(e.target.value)} />
+                </FormInputContainer>
+                <FormInputContainer>
+                  <FormLabel>Senha</FormLabel>
+                  <FormInput type="text" value={password} placeholder='Senha' onChange={(e) => setPassword(e.target.value)} />
+                </FormInputContainer>
+                <FormButtonArea>
+                  <FormButton>Enviar</FormButton>
+                  <FormLink to="/register">Crie sua conta</FormLink>
+                </FormButtonArea>
+              </FormWrapper>
+            </FormContainer>
           ) : (
             <div>
               <div>
-                <h1>Seja Bem-Vindo, {usuarioAtual.name}!</h1>
+                <h1>teste {usuarioAtual.name}!</h1>
                 <h2>Informações do usuário</h2>
                 <p>Nome: {usuarioAtual.name}</p>
                 <p>Email: {usuarioAtual.email}</p>
@@ -196,24 +204,29 @@ export default function Form({ isLogin }) {
         </>
       ) : (
         <>
-          <form onSubmit={handleSubmit}>
-            <h1>Register</h1>
-            <div>
-              <label>Nome</label>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            </div>
-            <div>
-              <label>Email</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div>
-              <label>Senha</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
-            <button type="submit" disabled={loading}>
-              {loading ? 'Enviando...' : 'Salvar'}
-            </button>
-          </form>
+          <FormContainer onSubmit={handleSubmit}>
+            <FormTitle>Criar Conta</FormTitle>
+            <FormWrapper>
+              <FormInputContainer>
+                <FormLabel>Nome</FormLabel>
+                <FormInput type="text" value={name} placeholder='Nome' onChange={(e) => setName(e.target.value)}/>
+              </FormInputContainer>
+              <FormInputContainer>
+                <FormLabel>Email</FormLabel>
+                <FormInput type="email" value={email} placeholder='E-mail' onChange={(e) => setEmail(e.target.value)} />
+              </FormInputContainer>
+              <FormInputContainer>
+                <FormLabel>Senha</FormLabel>
+                <FormInput type="password" value={password} placeholder='Senha' onChange={(e) => setPassword(e.target.value)} />
+              </FormInputContainer>
+              <FormButtonArea>
+                <FormButton type="submit" disabled={loading}>
+                  {loading ? 'Enviando...' : 'Salvar'}
+                </FormButton>
+                <FormLink to="/">Retornar a Loja</FormLink>
+              </FormButtonArea>
+            </FormWrapper>
+          </FormContainer>
         </>
       )}
     </>
