@@ -1,7 +1,7 @@
 // src/pages/CartPage.jsx
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function CartPage() {
   const { userLoggedIn, userCart, clearUserCart, removeItemFromCart } = useContext(UserContext);
@@ -33,6 +33,14 @@ export default function CartPage() {
     removeItemFromCart(index);
   };
 
+  const handleRemoveAllShirtsCart = (index) => {
+    clearUserCart(index)
+  }
+
+  // Função para calcular o preço total dos itens no carrinho
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
 
   useEffect(() => {
     if (!userLoggedIn) {
@@ -47,12 +55,11 @@ export default function CartPage() {
           <h1>Carrinho</h1>
           {cartItems.length > 0 ? (
             <div style={{ display: "flex", flexDirection: "column", margin: 'auto', width: "90%" }}>
-              <ul>
+              <ul style={{display: "flex", justifyContent: "space-evenly", flexDirection: "column" , flexWrap: "wrap", width: '100%' , gap: "30px 0px", margin: "50px 0", border: "2px solid red"}}>
                 {cartItems.map((item, index) => (
-                  <li key={index}>
-                    <img style={{ width: '250px', height: '250px' }} src={item.img} alt={item.name} />
+                  <li style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" , gap: "0 20px" }} key={index}>
+                    <img style={{ width: '180px', height: '180px' }} src={item.img} alt={item.name} />
                     <h3>{item.name}</h3>
-                    <p>Modelo: {item.model}</p>
                     <p>Preço: R${item.price}</p>
                     <p>Tamanho: {item.size}</p>
                     <p>Quantidade: {item.quantity}</p>
@@ -60,7 +67,14 @@ export default function CartPage() {
                   </li>
                 ))}
               </ul>
-              <button onClick={handleCheckout}>Finalizar Compra</button>
+              <div style={{background: "blue", display: "flex", justifyContent: "space-around", alignItems: 'center', padding: "30px 0"}}>
+                <Link to="/">Continue Comprando</Link>
+                <button onClick={handleRemoveAllShirtsCart}>Limpar carrinho de compras</button>
+              </div>
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: "flex-end", margin: "30px 0 0 0"}}>
+                <p>Total: R${calculateTotalPrice().toFixed(2)}</p>
+                <button onClick={handleCheckout}>Finalizar Compra</button>
+              </div>
             </div>
           ) : (
             <p>Seu carrinho está vazio.</p>
