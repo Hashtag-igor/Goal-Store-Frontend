@@ -29,7 +29,6 @@ export default function ProfilePage() {
     setSelectedSize(event.target.value);
   };
 
-
   const handleQuantityChange = (event) => {
     setSelectedQuantity(parseInt(event.target.value, 10));
   };
@@ -45,7 +44,11 @@ export default function ProfilePage() {
   const handleAddToCart = () => {
     if (userLoggedIn && selectedProduct && selectedSize && selectedQuantity > 0) {
       const itemWithSizeAndQuantity = { ...selectedProduct, size: selectedSize, quantity: selectedQuantity };
-      addItemToCart(itemWithSizeAndQuantity);
+  
+      // Adiciona o campo "model" ao item antes de adicionar ao carrinho
+      const itemWithModel = { ...itemWithSizeAndQuantity, model: selectedProduct.name };
+  
+      addItemToCart(itemWithModel);
       alert('Produto adicionado ao carrinho!');
     } else {
       alert('Por favor, escolha um tamanho e uma quantidade válida antes de adicionar ao carrinho.');

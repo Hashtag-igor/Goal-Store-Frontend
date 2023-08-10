@@ -7,12 +7,6 @@ export default function CartPage() {
   const { userLoggedIn, userCart, clearUserCart, removeItemFromCart } = useContext(UserContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!userLoggedIn) {
-      navigate('/');
-    }
-  }, [userLoggedIn, navigate]);
-
   const cartItems = userCart || [];
 
   const handleCheckout = () => {
@@ -39,22 +33,29 @@ export default function CartPage() {
     removeItemFromCart(index);
   };
 
+
+  useEffect(() => {
+    if (!userLoggedIn) {
+      navigate('/');
+    }
+  }, [userLoggedIn, navigate]);
+
   return (
-    <div>
+    <>
       {userLoggedIn ? (
-        <div>
+        <div style={{ width: "100%", background: "yellow" }}>
           <h1>Carrinho</h1>
           {cartItems.length > 0 ? (
-            <div>
+            <div style={{ display: "flex", flexDirection: "column", margin: 'auto', width: "90%" }}>
               <ul>
                 {cartItems.map((item, index) => (
                   <li key={index}>
                     <img style={{ width: '250px', height: '250px' }} src={item.img} alt={item.name} />
                     <h3>{item.name}</h3>
-                    <p>{item.description}</p>
+                    <p>Modelo: {item.model}</p>
                     <p>Preço: R${item.price}</p>
                     <p>Tamanho: {item.size}</p>
-                    <p>Quantidade: {item.quantity}</p> {/* Mostra a quantidade selecionada */}
+                    <p>Quantidade: {item.quantity}</p>
                     <button onClick={() => handleRemoveItem(index)}>Remover</button>
                   </li>
                 ))}
@@ -66,7 +67,7 @@ export default function CartPage() {
           )}
         </div>
       ) : null}
-    </div>
+    </>
   );
 }
 
