@@ -2,17 +2,14 @@
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { ButtonToBuy, CartContainer, CartContainerItems, CartContainerMap, CartData, CartMapDeleteButton, CartMapDescription,
+        CartMapIMG,CartMapName, CartTitle, CartWrapperButton, CartWrapperButtons, CartWrapperBuy, CartWrapperItems, CartWrapperLink, 
+        CartWrapperPrice, CartPageOffContainer, DeleteIcon } from "./styles/CartStyles"
+
 
 export default function CartPage() {
   const { userLoggedIn, userCart, clearUserCart, removeItemFromCart } = useContext(UserContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!userLoggedIn) {
-      navigate('/');
-    }
-  }, [userLoggedIn, navigate]);
-
   const cartItems = userCart || [];
 
   const handleCheckout = () => {
@@ -39,34 +36,58 @@ export default function CartPage() {
     removeItemFromCart(index);
   };
 
+  const handleRemoveAllShirtsCart = (index) => {
+    clearUserCart(index)
+  }
+
+  // Função para calcular o preço total dos itens no carrinho
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  useEffect(() => {
+    if (!userLoggedIn) {
+      navigate('/');
+    }
+  }, [userLoggedIn, navigate]);
+
   return (
-    <div>
+    <>
       {userLoggedIn ? (
-        <div>
-          <h1>Carrinho</h1>
+        <CartContainer>
+          <CartTitle>Carrinho de Compras</CartTitle>
           {cartItems.length > 0 ? (
-            <div>
-              <ul>
+            <CartContainerItems>
+              <CartWrapperItems>
                 {cartItems.map((item, index) => (
-                  <li key={index}>
-                    <img style={{ width: '250px', height: '250px' }} src={item.img} alt={item.name} />
-                    <h3>{item.name}</h3>
-                    <p>{item.description}</p>
-                    <p>Preço: R${item.price}</p>
-                    <p>Tamanho: {item.size}</p>
-                    <p>Quantidade: {item.quantity}</p> {/* Mostra a quantidade selecionada */}
-                    <button onClick={() => handleRemoveItem(index)}>Remover</button>
-                  </li>
+                  <CartContainerMap key={index}>
+                    <CartMapIMG src={item.img} alt={item.name} />
+                    <CartMapName>{item.name}</CartMapName>
+                    <CartMapDescription>Preço: <CartData>R$ {item.price}</CartData></CartMapDescription>
+                    <CartMapDescription>Tamanho: <CartData>{item.size}</CartData></CartMapDescription>
+                    <CartMapDescription>Quantidade: <CartData>{item.quantity}</CartData></CartMapDescription>
+                    <CartMapDeleteButton onClick={() => handleRemoveItem(index)}><DeleteIcon /></CartMapDeleteButton>
+                  </CartContainerMap>
                 ))}
-              </ul>
-              <button onClick={handleCheckout}>Finalizar Compra</button>
-            </div>
+              </CartWrapperItems>
+              <CartWrapperButtons>
+                <CartWrapperLink to="/">Continue Comprando</CartWrapperLink>
+                <CartWrapperButton onClick={handleRemoveAllShirtsCart}>Limpar carrinho de compras</CartWrapperButton>
+              </CartWrapperButtons>
+              <CartWrapperBuy>
+                <CartWrapperPrice>Total: R$ {calculateTotalPrice().toFixed(2)}</CartWrapperPrice>
+                <ButtonToBuy onClick={handleCheckout}>Finalizar Compra</ButtonToBuy>
+              </CartWrapperBuy>
+            </CartContainerItems>
           ) : (
-            <p>Seu carrinho está vazio.</p>
+            <CartPageOffContainer>
+              <CartTitle>Ops! Seu carrinho está vazio..</CartTitle>
+              <CartWrapperLink to="/">Volte a Página Inicial</CartWrapperLink>
+            </CartPageOffContainer>
           )}
-        </div>
+        </CartContainer>
       ) : null}
-    </div>
+    </>
   );
 }
 

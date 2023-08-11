@@ -8,14 +8,6 @@ export default function UserProvider({ children }) {
   const [allUsersData, setAllUsersData] = useState([]);
   const [userCart, setUserCart] = useState([]); // Adicione o estado para o carrinho
 
-  useEffect(() => {
-    // Ao carregar o componente, verifica se existe um usuário logado no Local Storage
-    const storedUser = localStorage.getItem('userLoggedIn');
-    if (storedUser) {
-      setUserLoggedIn(JSON.parse(storedUser));
-    }
-  }, []);
-
   // Função para atualizar o estado do usuário logado e também salvar no Local Storage
   const updateUserLoggedIn = (user) => {
     setUserLoggedIn(user);
@@ -31,36 +23,40 @@ export default function UserProvider({ children }) {
 
   // Função para adicionar um item ao carrinho de compras do usuário
   const addItemToCart = (item) => {
-  if (!userLoggedIn) {
-    return;
-  }
+    if (!userLoggedIn) {
+      return;
+    }
 
-  // Verifica se o item já existe no carrinho com o mesmo tamanho
-  const existingCartItem = userCart.find(
-    (cartItem) => cartItem.shirtId === item.shirtId && cartItem.size === item.size
-  );
+  // Adiciona o campo "model" ao item antes de adicionar ao carrinho
+  const itemWithModel = { ...item, model: item.name };
 
-  if (existingCartItem) {
-    // Se o produto com mesmo tamanho já está no carrinho, atualize a quantidade
+  // Verifica se o item já existe no carrinho
+  const existingCartItem = userCart.find((cartItem) => cartItem.shirtId === item.shirtId && cartItem.size === item.size);
+
+  if (existingCartItem && existingCartItem.model === item.name) {
+    // Se o produto com mesmo tamanho e modelo já está no carrinho, atualiza a quantidade
     const updatedCart = userCart.map((cartItem) =>
-      cartItem.shirtId === item.shirtId && cartItem.size === item.size
-        ? { ...cartItem, quantity: cartItem.quantity + item.quantity }
+      cartItem.shirtId === item.shirtId && cartItem.size === item.size && cartItem.model === item.name
+        ? {
+            ...cartItem,
+            quantity: cartItem.quantity + item.quantity,
+          }
         : cartItem
     );
 
-    // Salve o carrinho atualizado no Local Storage
+    // Salva o carrinho atualizado no Local Storage
     localStorage.setItem(`userCart_${userLoggedIn._id}`, JSON.stringify(updatedCart));
 
-    // Atualize o estado do carrinho no contexto
+    // Atualiza o estado do carrinho no contexto
     setUserCart(updatedCart);
   } else {
-    // Caso contrário, adicione o novo item ao carrinho
-    const updatedCart = [...userCart, item];
+    // Caso contrário, adiciona o novo item ao carrinho
+    const updatedCart = [...userCart, itemWithModel];
 
-    // Salve o carrinho atualizado no Local Storage
+    // Salva o carrinho atualizado no Local Storage
     localStorage.setItem(`userCart_${userLoggedIn._id}`, JSON.stringify(updatedCart));
 
-    // Atualize o estado do carrinho no contexto
+    // Atualiza o estado do carrinho no contexto
     setUserCart(updatedCart);
   }
   };
@@ -105,6 +101,15 @@ export default function UserProvider({ children }) {
     localStorage.removeItem(`userCart_${userLoggedIn._id}`);
     setUserCart([]); // Limpa o carrinho no estado local
   };
+
+  useEffect(() => {
+    // Ao carregar o componente, verifica se existe um usuário logado no Local Storage
+    const storedUser = localStorage.getItem('userLoggedIn');
+    if (storedUser) {
+      setUserLoggedIn(JSON.parse(storedUser));
+    }
+  }, []);
+
 
   return (
     <UserContext.Provider
