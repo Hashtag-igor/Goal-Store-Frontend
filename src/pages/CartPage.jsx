@@ -1,12 +1,15 @@
 // src/pages/CartPage.jsx
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { ButtonToBuy, CartContainer, CartContainerItems, CartContainerMap, CartData, CartMapDeleteButton, CartMapDescription,
+        CartMapIMG,CartMapName, CartTitle, CartWrapperButton, CartWrapperButtons, CartWrapperBuy, CartWrapperItems, CartWrapperLink, 
+        CartWrapperPrice, CartPageOffContainer, DeleteIcon } from "./styles/CartStyles"
+
 
 export default function CartPage() {
   const { userLoggedIn, userCart, clearUserCart, removeItemFromCart } = useContext(UserContext);
   const navigate = useNavigate();
-
   const cartItems = userCart || [];
 
   const handleCheckout = () => {
@@ -51,35 +54,38 @@ export default function CartPage() {
   return (
     <>
       {userLoggedIn ? (
-        <div style={{ width: "100%", background: "yellow" }}>
-          <h1>Carrinho</h1>
+        <CartContainer>
+          <CartTitle>Carrinho de Compras</CartTitle>
           {cartItems.length > 0 ? (
-            <div style={{ display: "flex", flexDirection: "column", margin: 'auto', width: "90%" }}>
-              <ul style={{display: "flex", justifyContent: "space-evenly", flexDirection: "column" , flexWrap: "wrap", width: '100%' , gap: "30px 0px", margin: "50px 0", border: "2px solid red"}}>
+            <CartContainerItems>
+              <CartWrapperItems>
                 {cartItems.map((item, index) => (
-                  <li style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" , gap: "0 20px" }} key={index}>
-                    <img style={{ width: '180px', height: '180px' }} src={item.img} alt={item.name} />
-                    <h3>{item.name}</h3>
-                    <p>Preço: R${item.price}</p>
-                    <p>Tamanho: {item.size}</p>
-                    <p>Quantidade: {item.quantity}</p>
-                    <button onClick={() => handleRemoveItem(index)}>Remover</button>
-                  </li>
+                  <CartContainerMap key={index}>
+                    <CartMapIMG src={item.img} alt={item.name} />
+                    <CartMapName>{item.name}</CartMapName>
+                    <CartMapDescription>Preço: <CartData>R$ {item.price}</CartData></CartMapDescription>
+                    <CartMapDescription>Tamanho: <CartData>{item.size}</CartData></CartMapDescription>
+                    <CartMapDescription>Quantidade: <CartData>{item.quantity}</CartData></CartMapDescription>
+                    <CartMapDeleteButton onClick={() => handleRemoveItem(index)}><DeleteIcon /></CartMapDeleteButton>
+                  </CartContainerMap>
                 ))}
-              </ul>
-              <div style={{background: "blue", display: "flex", justifyContent: "space-around", alignItems: 'center', padding: "30px 0"}}>
-                <Link to="/">Continue Comprando</Link>
-                <button onClick={handleRemoveAllShirtsCart}>Limpar carrinho de compras</button>
-              </div>
-              <div style={{display: 'flex', flexDirection: 'column', alignItems: "flex-end", margin: "30px 0 0 0"}}>
-                <p>Total: R${calculateTotalPrice().toFixed(2)}</p>
-                <button onClick={handleCheckout}>Finalizar Compra</button>
-              </div>
-            </div>
+              </CartWrapperItems>
+              <CartWrapperButtons>
+                <CartWrapperLink to="/">Continue Comprando</CartWrapperLink>
+                <CartWrapperButton onClick={handleRemoveAllShirtsCart}>Limpar carrinho de compras</CartWrapperButton>
+              </CartWrapperButtons>
+              <CartWrapperBuy>
+                <CartWrapperPrice>Total: R$ {calculateTotalPrice().toFixed(2)}</CartWrapperPrice>
+                <ButtonToBuy onClick={handleCheckout}>Finalizar Compra</ButtonToBuy>
+              </CartWrapperBuy>
+            </CartContainerItems>
           ) : (
-            <p>Seu carrinho está vazio.</p>
+            <CartPageOffContainer>
+              <CartTitle>Ops! Seu carrinho está vazio..</CartTitle>
+              <CartWrapperLink to="/">Volte a Página Inicial</CartWrapperLink>
+            </CartPageOffContainer>
           )}
-        </div>
+        </CartContainer>
       ) : null}
     </>
   );
