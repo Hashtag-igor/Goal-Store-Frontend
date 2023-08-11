@@ -46,8 +46,8 @@ export default function RDMShirts() {
         <Title>Camisas do Resto do Mundo</Title>
         <MapContainer>
           {camisasFiltradas.map((shirts, i) => (
-            <MapWrapper key={i} onClick={() => goToTheProfilePage(shirts)}>
-              <Card name={shirts.name} description={shirts.description} price={shirts.price} img={shirts.img} />
+            <MapWrapper key={i}>
+              <Card onClick={() => goToTheProfilePage(shirts)} name={shirts.name} description={shirts.description} price={shirts.price} img={shirts.img} />
             </MapWrapper>
           ))}
         </MapContainer>

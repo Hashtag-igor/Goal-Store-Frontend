@@ -12,7 +12,6 @@ const MapContainer = styled.div`
   gap: 30px 0;
   width: 100%;
 `
-
 const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -66,8 +65,8 @@ export default function SearchPage() {
       <SearchTitle>Resultados para: <SearchTitleResults>{searchTerm}</SearchTitleResults></SearchTitle>
       <MapContainer>
         {searchProducts.map((products, i) => (
-          <MapWrapper key={i} onClick={() => goToTheProfilePage(products)}>
-            <Card name={products.name} description={products.description} price={products.price} img={products.img}/>
+          <MapWrapper key={i}>
+            <Card onClick={() => goToTheProfilePage(products)} name={products.name} description={products.description} price={products.price} img={products.img}/>
           </MapWrapper>
         ))}
       </MapContainer>
