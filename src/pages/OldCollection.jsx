@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from "../components/Card"
 import { Container, Wrapper, MapContainer, MapWrapper, Title } from "../styles/SharedFiles"
 
-export default function RDMShirts() {
+export default function OldCollection() {
   const [RDMShirts, setRDMShirts] = useState([]);
 
   const navigate = useNavigate()
@@ -34,8 +34,7 @@ export default function RDMShirts() {
     RDMShirts.length > 0
       ? RDMShirts.filter(
           (shirts) =>
-            shirts.description.toLowerCase().includes('rdm') &&
-            !shirts.description?.toLowerCase().includes('seleção') &&
+            shirts.name.toLowerCase().includes('2021/22') &&
             !shirts.description?.toLowerCase().includes('retrô')
         )
       : [];
@@ -43,7 +42,7 @@ export default function RDMShirts() {
   return (
     <Container>
       <Wrapper>
-        <Title>Camisas do Resto do Mundo</Title>
+        <Title>Camisas da Temporada Passada</Title>
         <MapContainer>
           {camisasFiltradas.map((shirts, i) => (
             <MapWrapper key={i}>

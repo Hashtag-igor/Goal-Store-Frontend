@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from "../components/Card"
+import { Container, Wrapper, MapContainer, MapWrapper, Title } from "../styles/SharedFiles"
 
 export default function BRShirts() {
   const [BRShirts, setBRShirts] = useState([]);
-
   const navigate = useNavigate()
 
   // Função para buscar as camisas da API e atualizar o estado
@@ -40,18 +40,21 @@ export default function BRShirts() {
       : [];
 
   return (
-    <div>
-      <h1>Camisas de Times Brasileiros</h1>
-      <div style={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap", gap: "30px 0px"}}>
-        {camisasFiltradas.map((shirts, i) => (
-          <div key={i} onClick={() => goToTheProfilePage(shirts)}>
-            <Card name={shirts.name} description={shirts.description} price={shirts.price} img={shirts.img}/>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Container>
+      <Wrapper>
+        <Title>Camisas de Times Brasileiros</Title>
+        <MapContainer>
+          {camisasFiltradas.map((shirts, i) => (
+            <MapWrapper key={i}>
+              <Card onClick={() => goToTheProfilePage(shirts)} name={shirts.name} description={shirts.description} price={shirts.price} img={shirts.img} />
+            </MapWrapper>
+          ))}
+        </MapContainer>
+      </Wrapper>
+    </Container>
   );
 }
+
 
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import Home from "./pages/Home"
 import App from './App';
 import UserProvider from "./contexts/UserContext"
@@ -13,10 +12,13 @@ import NationShirts from './pages/NationShirts';
 import RDMShirts from './pages/RDMShirts';
 import RetroShirts from './pages/RetroShirts';
 import SearchPage from './pages/SearchPage';
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import OldCollection from "./pages/OldCollection";
 import ProfilePage from './pages/ProfilePage';
 import CartPage from './pages/CartPage';
+import NewCollection from './pages/NewCollection';
+import GlobalStyle from "./styles/GlobalStyle";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router =  createBrowserRouter([  
   {
@@ -66,6 +68,14 @@ const router =  createBrowserRouter([
       {
         path: "/cart",
         element: <CartPage />
+      },
+      {
+        path: "/newcollection",
+        element: <NewCollection />
+      },
+      {
+        path: "/oldcollection",
+        element: <OldCollection />
       }
     ] 
   },
@@ -74,6 +84,7 @@ const router =  createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <UserProvider>
       <RouterProvider router={router} />
     </UserProvider>

@@ -56,38 +56,42 @@ export default function ProfilePage() {
   };
 
   return (
-    <div>
+    <div style={{width: "90%", background: 'yellow', margin: 'auto'}}>
       {selectedProduct && (
-        <div>
-          <h2>{selectedProduct.name}</h2>
-          <p>{selectedProduct.description}</p>
-          <p>Preço: R${selectedProduct.price}</p>
-          <img src={selectedProduct.img} alt={selectedProduct.name} />
-          <label htmlFor="size">Escolha um tamanho:</label>
-          <select id="size" value={selectedSize} onChange={handleSizeChange}>
-            <option value="">Selecione</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            {/* Adicione mais opções de tamanho conforme necessário */}
-          </select>
-          <label htmlFor="quantity">Quantidade:</label>
+        <div style={{display: "flex"}}>
           <div>
-            <button onClick={handleDecrementQuantity}>-</button>
-            <input
-              type="number"
-              id="quantity"
-              value={selectedQuantity}
-              onChange={handleQuantityChange}
-              min={1}
-            />
-            <button onClick={handleIncrementQuantity}>+</button>
+            <div>
+              <img src={selectedProduct.img} alt={selectedProduct.name} />
+            </div>
+            <div>
+              <img style={{width: '180px', height: '180px'}} src={selectedProduct.img} alt={selectedProduct.name} />
+              <img style={{width: '180px', height: '180px'}} src={selectedProduct.img_back} alt={selectedProduct.name} />
+            </div>
           </div>
-          {userLoggedIn ? (
-            <button onClick={handleAddToCart}>Adicionar ao carrinho</button>
-          ) : (
-            <p>Faça login para adicionar este item ao carrinho.</p>
-          )}
+          <div>
+            <h2>{selectedProduct.name}</h2>
+            <p>{selectedProduct.description}</p>
+            <p>Preço: R${selectedProduct.price}</p>
+            <label htmlFor="size">Escolha um tamanho:</label>
+            <select id="size" value={selectedSize} onChange={handleSizeChange}>
+              <option value="">Selecione</option>
+              <option value="P">P</option>
+              <option value="M">M</option>
+              <option value="G">G</option>
+              {/* Adicione mais opções de tamanho conforme necessário */}
+            </select>
+            <label htmlFor="quantity">Quantidade:</label>
+            <div>
+              <button onClick={handleDecrementQuantity}>-</button>
+              <input type="number" id="quantity" value={selectedQuantity} onChange={handleQuantityChange} min={1} />
+              <button onClick={handleIncrementQuantity}>+</button>
+              {userLoggedIn ? (
+                <button onClick={handleAddToCart}>Adicionar ao carrinho</button>
+              ) : (
+                <p>Faça login para adicionar este item ao carrinho.</p>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>
