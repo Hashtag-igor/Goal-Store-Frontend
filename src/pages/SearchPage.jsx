@@ -18,7 +18,7 @@ const SearchContainer = styled.div`
   width: 90%;
   align-items: center;
   gap: 50px 0;
-  margin: 40px auto;
+  margin: 70px auto;
 `
 const SearchTitle = styled.h2`
   width: 95%;
