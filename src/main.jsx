@@ -16,6 +16,7 @@ import SearchPage from './pages/SearchPage';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
+import CartPage from './pages/CartPage';
 
 const router =  createBrowserRouter([  
   {
@@ -61,6 +62,10 @@ const router =  createBrowserRouter([
       {
         path: "/profile",
         element: <ProfilePage />
+      },
+      {
+        path: "/cart",
+        element: <CartPage />
       }
     ] 
   },

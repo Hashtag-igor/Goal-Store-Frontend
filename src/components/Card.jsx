@@ -1,3 +1,4 @@
+import React from 'react';
 
 export default function Card({name, description, price, img, onClick}) {
 
@@ -16,5 +17,7 @@ export default function Card({name, description, price, img, onClick}) {
             <button onClick={goToProfilePage}>Comprar</button>
         </div>
     </div>
-  )
+  );
 }
+
+

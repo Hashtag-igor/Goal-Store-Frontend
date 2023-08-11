@@ -164,7 +164,7 @@ export default function Form({ isLogin }) {
               <label>Email</label>
               <input type="email" onChange={(e) => setEmail(e.target.value)} />
               <hr />
-              <label>Password</label>
+              <label>Senha</label>
               <input type="text" onChange={(e) => setPassword(e.target.value)} />
               <hr />
               <button>Enviar</button>
@@ -176,7 +176,7 @@ export default function Form({ isLogin }) {
                 <h2>Informações do usuário</h2>
                 <p>Nome: {usuarioAtual.name}</p>
                 <p>Email: {usuarioAtual.email}</p>
-                <p>Password: {usuarioAtual.password}</p>
+                <p>Senha: {usuarioAtual.password}</p>
                 <button onClick={handleLogout}>Sair</button>
               </div>
               {usuarioAtual.email === 'admin@admin.com' ? (
@@ -207,7 +207,7 @@ export default function Form({ isLogin }) {
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div>
-              <label>Password</label>
+              <label>Senha</label>
               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <button type="submit" disabled={loading}>
