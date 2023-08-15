@@ -4,7 +4,7 @@ import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { ButtonToBuy, CartContainer, CartContainerItems, CartContainerMap, CartData, CartMapDeleteButton, CartMapDescription,
         CartMapIMG,CartMapName, CartTitle, CartWrapperButton, CartWrapperButtons, CartWrapperBuy, CartWrapperItems, CartWrapperLink, 
-        CartWrapperPrice, CartPageOffContainer, DeleteIcon } from "./styles/CartStyles"
+        CartWrapperPrice, CartPageOffContainer, DeleteIcon } from "../styles/CartStyles"
 
 
 export default function CartPage() {

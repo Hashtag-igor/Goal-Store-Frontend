@@ -122,4 +122,5 @@ export const CartPageOffContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 120px;
 `
