@@ -1,9 +1,17 @@
 // src/pages/ProfilePage.jsx
-import React, { useState, useEffect, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
-import { BsCart3 } from "react-icons/bs"
-
+import { OffMessage } from "../styles/CartStyles"
+import { ProfileProductContainer, ProfileIMGContainer, ProfileInfoContainer, ProfileMainIMG, ProfileIMGWrapper, ProfileSmallIMG,
+         ProfileSizeSelect, ProfileSizeQuantyContainer, ProfileSizeOption, ProfileSizeQuantyWrapper, ProfileLabel,
+         ProfileQuantyButton, ProfileQuanty, ProfileHomeLink, ProfileLink, ProfileLinksContainer, ProfileSlash,
+         ProfileProductWrapper, ProfileSizeContainer, ProfileInfoDescription, ProfileInfoName, ProfileInfoWrapper,
+         ProfilePaymentButton, ProfilePaymentButtonIcon, ProfilePaymentContainer, ProfilePaymentIMG, ProfilePaymentMessage,
+         ProfilePaymentOptionsContainer, ProfilePaymentPrice, AboutProductContainer, AboutProductInfo, AboutProductInfoContainer,
+         AboutProductTH, AboutProductTR, AboutProductTable, AboutProductTitleContainer, AboutProductWarningContainer, AboutProductWarningDescription,
+         AboutProductWarningSize, AboutProductWarningTitle, AboutProductWrapper, AboutProductTD, AboutProductTitle, StrongWord,
+         AboutProductTDSize } from "../styles/ProfileStyles.jsx"
 
 
 export default function ProfilePage() {
@@ -58,117 +66,130 @@ export default function ProfilePage() {
     }
   };
 
+  
   return (
-    <div>
-      <div style={{width: "90%", margin: '90px auto'}}>
+    <>
+      {/* Area de Links antes do conteúdo */}
+      <ProfileLinksContainer>
+        <Link to="/"><ProfileHomeLink/></Link>
+        <ProfileSlash> / </ProfileSlash>
+        <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
+        <ProfileSlash> / </ProfileSlash>
+        <ProfileLink to="/oldcollection">CAMISAS DA TEMPORADA PASSADA</ProfileLink>
+      </ProfileLinksContainer>
+
+      {/* Container de imagens do produto, informações do produto e area para enviar-lo para o carrinho */}
+      <ProfileProductContainer>
         {selectedProduct && (
-          <div style={{display: "flex"}}>
-            <div style={{width: "40%", display: "flex", alignItems: 'center', justifyContent: "center", flexDirection: "column", borderRight: "1px solid #d1d1d1"}}>
-              <div>
-                <img style={{width: "400px", height: "400px"}} src={selectedProduct.img} alt={selectedProduct.name} />
-              </div>
-              <div>
-                <img style={{width: '180px', height: '180px'}} src={selectedProduct.img} alt={selectedProduct.name} />
-                <img style={{width: '180px', height: '180px'}} src={selectedProduct.img_back} alt={selectedProduct.name} />
-              </div>
-            </div>
+          <ProfileProductWrapper>
+            <ProfileIMGContainer>
+              <ProfileIMGWrapper>
+                <ProfileMainIMG src={selectedProduct.img} alt={selectedProduct.name} />
+              </ProfileIMGWrapper>
+              <ProfileIMGWrapper>
+                <ProfileSmallIMG src={selectedProduct.img} alt={selectedProduct.name} />
+                <ProfileSmallIMG src={selectedProduct.img_back} alt={selectedProduct.name} />
+              </ProfileIMGWrapper>
+            </ProfileIMGContainer>
 
-            <div style={{ width: "60%", display: "flex", alignItems: 'center', justifyContent: 'center' , flexDirection: "column", gap: "40px"}}>
+            <ProfileInfoContainer>
               {/* infos */}
-              <div style={{textAlign: "center"}}>
-                <h2 style={{fontSize: "28px", marginTop: "40px"}}>{selectedProduct.name}</h2>
-                <p style={{fontSize: "18px", marginTop: "8px"}}>{selectedProduct.description}</p>
-              </div>
+              <ProfileInfoWrapper>
+                <ProfileInfoName>{selectedProduct.name}</ProfileInfoName>
+                <ProfileInfoDescription>{selectedProduct.description}</ProfileInfoDescription>
+              </ProfileInfoWrapper>
               {/* Quantidade e tamanho */}
-              <div style={{width: "90%",  display: "flex", justifyContent: 'space-evenly', alignItems: "center"}}>
-                <div>
-                  <label htmlFor="size">Escolha um tamanho:</label>
-                  <select id="size" value={selectedSize} onChange={handleSizeChange}>
-                    <option value="">Selecione</option>
-                    <option value="P">P</option>
-                    <option value="M">M</option>
-                    <option value="G">G</option>
-                  </select>
-                </div>
-                <div>
-                    <label htmlFor="quantity">Quantidade:</label>
-                    <button style={{fontSize: "22px", padding: "1px 8px"}} onClick={handleDecrementQuantity}>-</button>
-                    <input style={{width: "48px", border: 'none', backgroundColor: "transparent", textAlign: "center", fontSize: "24px"}} type="text" id="quantity" value={selectedQuantity} onChange={handleQuantityChange} min={1} />
-                    <button style={{fontSize: "22px", padding: "1px 8px"}} onClick={handleIncrementQuantity}>+</button>
-                </div>
-              </div>
-              {/* Pagemento   */}
-              <div style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "10px 0", margin: "50px 0"}}>
-                <p style={{fontSize: "34px", color: "#f82e56", fontWeight: "bolder"}}>Preço: R${selectedProduct.price}</p>
+              <ProfileSizeQuantyContainer>
+                <ProfileSizeQuantyWrapper>
+                  <ProfileSizeContainer>
+                    <ProfileLabel htmlFor="size">Escolha um tamanho:</ProfileLabel>
+                    <ProfileSizeSelect id="size" value={selectedSize} onChange={handleSizeChange}>
+                      <ProfileSizeOption value="">Selecione</ProfileSizeOption>
+                      <ProfileSizeOption value="P">P</ProfileSizeOption>
+                      <ProfileSizeOption value="M">M</ProfileSizeOption>
+                      <ProfileSizeOption value="G">G</ProfileSizeOption>
+                      <ProfileSizeOption value="GG">GG</ProfileSizeOption>
+                    </ProfileSizeSelect>
+                  </ProfileSizeContainer>
+                </ProfileSizeQuantyWrapper>
+                <ProfileSizeQuantyWrapper>
+                    <ProfileLabel htmlFor="quantity">Quantidade:</ProfileLabel>
+                    <ProfileQuantyButton onClick={handleDecrementQuantity}>-</ProfileQuantyButton>
+                    <ProfileQuanty type="text" id="quantity" value={selectedQuantity} onChange={handleQuantityChange} min={1} />
+                    <ProfileQuantyButton onClick={handleIncrementQuantity}>+</ProfileQuantyButton>
+                </ProfileSizeQuantyWrapper>
+              </ProfileSizeQuantyContainer>
+              {/* Pagemento */}
+              <ProfilePaymentContainer>
+                <ProfilePaymentPrice>Preço: R${selectedProduct.price}</ProfilePaymentPrice>
                 {userLoggedIn ? (
-                  <button style={{backgroundColor: "#f82e56", color: "white", padding: "15px 0", fontSize: "20px", width: "330px", fontWeight: "bolder", border: "1px solid #f82e56", marginTop: "15px"}} onClick={handleAddToCart}><BsCart3 style={{fontSize: "22px"}}/> Adicionar ao carrinho</button>
+                  <ProfilePaymentButton onClick={handleAddToCart}><ProfilePaymentButtonIcon/> Adicionar ao carrinho</ProfilePaymentButton>
                 ) : (
-                  <p>Faça login para adicionar este item ao carrinho.</p>
+                  <OffMessage>Faça login para adicionar este item ao carrinho.</OffMessage>
                 )}
-                <div style={{margin: "15px auto", display: "flex", alignItems: "center", flexDirection: "column"}}>
-                  {/* <img src="https://assets.pagseguro.com.br/ps-integration-assets/banners/parcelamento/468x60_pagseguro_12x.gif" alt="" /> */}
-                  <img style={{margin: "20px 0"}} src="https://fanaticotorcedor.net/cdn/shop/files/1.png?v=1613676898" alt="" />
-                  <p style={{width: "90%", textAlign: "center"}}>*Processo de pagamento totalmente seguro, por boleto bancário ou Pix ou cartão de crédito, através do MercadoPago.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+                <ProfilePaymentOptionsContainer>
+                  <ProfilePaymentIMG src="https://fanaticotorcedor.net/cdn/shop/files/1.png?v=1613676898" alt="" />
+                  <ProfilePaymentMessage>*Processo de pagamento totalmente seguro, por boleto bancário ou Pix ou cartão de crédito, através do MercadoPago.</ProfilePaymentMessage>
+                </ProfilePaymentOptionsContainer>
+              </ProfilePaymentContainer>
+            </ProfileInfoContainer>
+          </ProfileProductWrapper>
         )}
-      </div>
+      </ProfileProductContainer>
 
-      <div style={{width: "90%", margin: '30vh auto 20vh', border: "2px solid #dadada"}}>
-        <div style={{width: "90%", margin: "auto"}}>
-          <h2>Descrição do Produto</h2>
-          <h3>TAMANHOS E MEDIDAS</h3>
-          <div style={{background: "red"}}>
-            <h4>AVISO:</h4>
-            <p>É importante estar atento ao selecionar o tamanho desejado, já que não realizamos substituições devido a equívocos na escolha do tamanho. Trocas são viáveis somente em casos de defeitos de fabricação ou erros cometidos por nossa equipe. Nosso objetivo é garantir que sua compra seja feita no tamanho correto. Você pode conferir a tabela de tamanhos e dimensões abaixo para mais detalhes.</p>
-          </div>
-          <div>
-            <table style={{height: "300px", borderCollapse: "collapse", width: "90%", border: "1px solid black", textAlign: "center", margin: "auto"}}>
-  <tr>
-    <th></th>
-    <th>Comprimento</th>
-    <th>Largura</th>
-    <th>Altura</th>
-  </tr>
-  <tr>
-    <td>P</td>
-    <td>61cm</td>
-    <td>92cm</td>
-    <td>155 - 175cm</td>
-  </tr>
-  <tr>
-    <td>M</td>
-    <td>71cm</td>
-    <td>96cm</td>
-    <td>165 - 180cm</td>
-  </tr>
-  <tr>
-    <td>G</td>
-    <td>73cm</td>
-    <td>100cm</td>
-    <td>170 - 185cm</td>
-  </tr>
-  <tr>
-    <td>GG</td>
-    <td>76cm</td>
-    <td>106cm</td>
-    <td>175 - 190cm</td>
-  </tr>
-</table>
-            <p style={{background: "red", padding: "15px 0", textAlign: "center"}}>Podem haver variações de 1 a 5cm devido a modelagem da camisa</p>
-          </div>
-          <ul style={{listStyle: "none"}}>
-            <li>COMPOSIÇÃO: Poliéster</li>
-            <li>ORIGEM: Importada</li>
-            <li>GARANTIA: Contra defeito de fabricação</li>
-            <li>PRAZO DE ENTREGA: O prazo de entrega estimado é de aproximadamente 25 a 60 dias ÚTEIS após o envio do Código de Rastreio. Observe que este é o prazo máximo, em média, os pedidos chegam antes dos 29 dias, variando de acordo com os serviços postais da sua cidade. </li>
-            <li>ENVIO: Para termos um ótimo preço, os produtos são enviados diretamente do nosso distribuidor no exterior diretamente para a casa do cliente.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      {/* Explicando tamanhos e medidas das camisas */}
+      <AboutProductContainer>
+        <AboutProductWrapper>
+          <AboutProductTitleContainer>
+            <AboutProductTitle>TAMANHOS E MEDIDAS</AboutProductTitle>
+          </AboutProductTitleContainer>
+          <AboutProductWarningContainer>
+            <AboutProductWarningTitle>AVISO:</AboutProductWarningTitle>
+            <AboutProductWarningDescription>É importante estar atento ao selecionar o tamanho desejado, já que não realizamos substituições devido a equívocos na escolha do tamanho. Trocas são viáveis somente em casos de defeitos de fabricação ou erros cometidos por nossa equipe. Nosso objetivo é garantir que sua compra seja feita no tamanho correto. Você pode conferir a tabela de tamanhos e dimensões abaixo para mais detalhes.</AboutProductWarningDescription>
+          </AboutProductWarningContainer>
+          <AboutProductTable>
+            <AboutProductTR>
+              <AboutProductTH></AboutProductTH>
+              <AboutProductTH>Comprimento</AboutProductTH>
+              <AboutProductTH>Largura</AboutProductTH>
+              <AboutProductTH>Altura</AboutProductTH>
+            </AboutProductTR>
+            <AboutProductTR>
+              <AboutProductTDSize>P</AboutProductTDSize>
+              <AboutProductTD>61cm</AboutProductTD>
+              <AboutProductTD>92cm</AboutProductTD>
+              <AboutProductTD>155 - 175cm</AboutProductTD>
+            </AboutProductTR>
+            <AboutProductTR>
+              <AboutProductTDSize>M</AboutProductTDSize>
+              <AboutProductTD>71cm</AboutProductTD>
+              <AboutProductTD>96cm</AboutProductTD>
+              <AboutProductTD>165 - 180cm</AboutProductTD>
+            </AboutProductTR>
+            <AboutProductTR>
+              <AboutProductTDSize>G</AboutProductTDSize>
+              <AboutProductTD>73cm</AboutProductTD>
+              <AboutProductTD>100cm</AboutProductTD>
+              <AboutProductTD>170 - 185cm</AboutProductTD>
+            </AboutProductTR>
+            <AboutProductTR>
+              <AboutProductTDSize>GG</AboutProductTDSize>
+              <AboutProductTD>76cm</AboutProductTD>
+              <AboutProductTD>106cm</AboutProductTD>
+              <AboutProductTD>175 - 190cm</AboutProductTD>
+            </AboutProductTR>
+          </AboutProductTable>
+            <AboutProductWarningSize>*Podem haver variações de 1 a 5cm devido a modelagem da camisa</AboutProductWarningSize>
+          <AboutProductInfoContainer>
+            <AboutProductInfo><StrongWord>COMPOSIÇÃO:</StrongWord> Poliéster</AboutProductInfo>
+            <AboutProductInfo><StrongWord>ORIGEM:</StrongWord> Importada</AboutProductInfo>
+            <AboutProductInfo><StrongWord>GARANTIA:</StrongWord> Contra defeito de fabricação</AboutProductInfo>
+            <AboutProductInfo><StrongWord>PRAZO DE ENTREGA</StrongWord> O prazo de entrega estimado é de aproximadamente 25 a 60 dias ÚTEIS após o envio do Código de Rastreio. Observe que este é o prazo máximo, em média, os pedidos chegam antes dos 29 dias, variando de acordo com os serviços postais da sua cidade. </AboutProductInfo>
+            <AboutProductInfo><StrongWord>ENVIO:</StrongWord> Para termos um ótimo preço, os produtos são enviados diretamente do nosso distribuidor no exterior diretamente para a casa do cliente.</AboutProductInfo>
+          </AboutProductInfoContainer>
+        </AboutProductWrapper>
+      </AboutProductContainer>
+    </>
   );
 }
 

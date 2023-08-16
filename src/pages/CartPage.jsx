@@ -4,7 +4,7 @@ import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { ButtonToBuy, CartContainer, CartContainerItems, CartContainerMap, CartData, CartMapDeleteButton, CartMapDescription,
         CartMapIMG,CartMapName, CartTitle, CartWrapperButton, CartWrapperButtons, CartWrapperBuy, CartWrapperItems, CartWrapperLink, 
-        CartWrapperPrice, CartPageOffContainer, DeleteIcon } from "../styles/CartStyles"
+        CartWrapperPrice, OffMessage, DeleteIcon } from "../styles/CartStyles"
 
 
 export default function CartPage() {
@@ -80,10 +80,10 @@ export default function CartPage() {
               </CartWrapperBuy>
             </CartContainerItems>
           ) : (
-            <CartPageOffContainer>
+            <OffMessage>
               <CartTitle>Ops! Seu carrinho está vazio..</CartTitle>
               <CartWrapperLink to="/">Volte a Página Inicial</CartWrapperLink>
-            </CartPageOffContainer>
+            </OffMessage>
           )}
         </CartContainer>
       ) : null}

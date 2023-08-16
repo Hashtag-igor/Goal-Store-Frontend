@@ -117,8 +117,7 @@ export const ButtonToBuy = styled.button`
     cursor: pointer;
   }
 `
-
-export const CartPageOffContainer = styled.div`
+export const OffMessage = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
