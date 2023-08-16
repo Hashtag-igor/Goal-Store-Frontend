@@ -2,7 +2,9 @@ import { styled } from "styled-components";
 import { FiDelete } from 'react-icons/fi'
 import { Link } from "react-router-dom";
 
-export const CartContainer = styled.div``
+export const CartContainer = styled.div`
+  margin: 10px 0 100px 0;
+`
 
 export const CartTitle = styled.h2`
   text-align: center;
@@ -58,10 +60,11 @@ export const CartMapDescription = styled.p`
   font-size: 16px;
 ` 
 export const CartData = styled.strong`
+  font-family: 'Inter', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 20px;
   color: #f82e56;
 `
-
 export const CartMapDeleteButton = styled.button`
   border: none;
   background-color: white;
@@ -102,14 +105,16 @@ export const CartWrapperLink = styled(Link)`
   }
 `
 export const CartWrapperPrice = styled.p`
-  font-size: 34px;
+  font-size: 40px;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Oswald', sans-serif;
 `
 export const ButtonToBuy = styled.button`
   background-color: #f82e56;
   color: white;
   padding: 15px 0;
   font-size: 20px;
-  width: 220px;
+  width: 250px;
   font-weight: bolder;
   border: 1px solid #f82e56;
   margin-top: 15px;

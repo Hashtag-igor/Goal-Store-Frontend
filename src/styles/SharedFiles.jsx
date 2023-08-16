@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 // Estilizações das Rotas de Camisas
 export const Container = styled.div`
   width: 90%;
-  margin: 70px auto;
+  margin: 70px auto 100px auto;
 `
 export const Wrapper = styled.div`
   width: 100%;
