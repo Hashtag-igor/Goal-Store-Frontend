@@ -13,13 +13,6 @@ export const ProfileLinksContainer = styled.div`
 `
 export const ProfileHomeLink = styled(BsFillHouseFill)`
     font-size: 17px;
-    color: black;
-
-    &:hover {
-        transition: 0.3s;
-        cursor: pointer;
-        color: #f82e56;
-    }
 `
 export const ProfileSlash = styled.span`
     font-family: "roboto"; 

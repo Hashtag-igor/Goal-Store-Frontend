@@ -71,7 +71,7 @@ export default function ProfilePage() {
     <>
       {/* Area de Links antes do conteúdo */}
       <ProfileLinksContainer>
-        <Link to="/"><ProfileHomeLink/></Link>
+        <ProfileLink to="/"><ProfileHomeLink/></ProfileLink>
         <ProfileSlash> / </ProfileSlash>
         <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
         <ProfileSlash> / </ProfileSlash>
