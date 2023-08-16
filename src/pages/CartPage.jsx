@@ -65,7 +65,7 @@ export default function CartPage() {
 
       {userLoggedIn ? (
         <CartContainer>
-          <CartTitle>Carrinho de Compras</CartTitle>
+          <CartTitle>CARRINHO DE COMPRAS</CartTitle>
           {cartItems.length > 0 ? (
             <CartContainerItems>
               <CartWrapperItems>

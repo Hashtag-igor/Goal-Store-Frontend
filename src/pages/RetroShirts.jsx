@@ -54,7 +54,7 @@ export default function RetroShirts() {
       
       <Container>
         <Wrapper>
-          <Title>Camisas Retrô</Title>
+          <Title>CAMISAS RETRÔ</Title>
           <MapContainer>
             {camisasFiltradas.map((shirts, i) => (
               <MapWrapper key={i}>

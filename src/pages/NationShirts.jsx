@@ -54,7 +54,7 @@ export default function NationShirts() {
 
       <Container>
         <Wrapper>
-          <Title>Camisas de Seleções</Title>
+          <Title>CAMISAS DE SELEÇÕES</Title>
           <MapContainer>
             {camisasFiltradas.map((shirts, i) => (
               <MapWrapper key={i}>

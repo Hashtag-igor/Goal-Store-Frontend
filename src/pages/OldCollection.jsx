@@ -53,7 +53,7 @@ export default function OldCollection() {
 
       <Container>
         <Wrapper>
-          <Title>Camisas da Temporada Passada</Title>
+          <Title>CAMISAS DA TEMPORADA PASSADA</Title>
           <MapContainer>
             {camisasFiltradas.map((shirts, i) => (
               <MapWrapper key={i}>

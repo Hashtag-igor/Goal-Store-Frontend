@@ -53,7 +53,7 @@ export default function BRShirts() {
 
       <Container>
         <Wrapper>
-          <Title>Camisas de Times Brasileiros</Title>
+          <Title>CAMISAS DE TIMES BRASILEIROS</Title>
           <MapContainer>
             {camisasFiltradas.map((shirts, i) => (
               <MapWrapper key={i}>

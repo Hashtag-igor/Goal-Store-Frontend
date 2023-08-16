@@ -54,7 +54,7 @@ export default function RDMShirts() {
 
       <Container>
         <Wrapper>
-          <Title>Camisas do Resto do Mundo</Title>
+          <Title>CAMISAS DO RESTO DO MUNDO</Title>
           <MapContainer>
             {camisasFiltradas.map((shirts, i) => (
               <MapWrapper key={i}>

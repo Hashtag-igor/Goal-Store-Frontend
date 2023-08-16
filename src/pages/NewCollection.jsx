@@ -52,7 +52,7 @@ export default function NewCollection() {
       </ProfileLinksContainer>
       <Container>
         <Wrapper>
-          <Title>Coleção da Nova Temporada</Title>
+          <Title>COLEÇÃO DA NOVA TEMPORADA</Title>
           <MapContainer>
             {camisasFiltradas.map((shirts, i) => (
               <MapWrapper key={i}>
