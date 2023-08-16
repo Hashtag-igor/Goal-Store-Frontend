@@ -1,10 +1,11 @@
 // src/pages/CartPage.jsx
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { ButtonToBuy, CartContainer, CartContainerItems, CartContainerMap, CartData, CartMapDeleteButton, CartMapDescription,
         CartMapIMG,CartMapName, CartTitle, CartWrapperButton, CartWrapperButtons, CartWrapperBuy, CartWrapperItems, CartWrapperLink, 
         CartWrapperPrice, OffMessage, DeleteIcon } from "../styles/CartStyles"
+import { ProfileLink, ProfileLinksContainer, ProfileSlash, ProfileHomeLink } from "../styles/ProfileStyles"
 
 
 export default function CartPage() {
@@ -53,6 +54,15 @@ export default function CartPage() {
 
   return (
     <>
+      {/* Area de Links antes do conteúdo */}
+      <ProfileLinksContainer>
+        <ProfileLink to="/"><ProfileHomeLink/></ProfileLink>
+        <ProfileSlash> / </ProfileSlash>
+        <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
+        <ProfileSlash> / </ProfileSlash>
+        <ProfileLink to="/oldcollection">CAMISAS DA TEMPORADA PASSADA</ProfileLink>
+      </ProfileLinksContainer>
+
       {userLoggedIn ? (
         <CartContainer>
           <CartTitle>Carrinho de Compras</CartTitle>

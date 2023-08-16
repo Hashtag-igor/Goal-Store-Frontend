@@ -43,7 +43,7 @@ export const CartContainerMap = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0 20px;
+  gap: 0 30px;
   border-bottom: 1px solid #e0e0e0;
 `
 export const CartMapIMG = styled.img`
@@ -52,13 +52,14 @@ export const CartMapIMG = styled.img`
   margin-bottom: 20px;
 `
 export const CartMapName = styled.h3`
-  font-size: 26px;
+  font-size: 20px;
 `
 export const CartMapDescription = styled.p`
-  font-size: 20px;
+  font-size: 16px;
 ` 
 export const CartData = styled.strong`
-  font-size: 24px;
+  font-size: 20px;
+  color: #f82e56;
 `
 
 export const CartMapDeleteButton = styled.button`
@@ -66,7 +67,7 @@ export const CartMapDeleteButton = styled.button`
   background-color: white;
 `
 export const DeleteIcon = styled(FiDelete)`
-  font-size: 40px;
+  font-size: 36px;
 
   &:hover {
     cursor: pointer;
