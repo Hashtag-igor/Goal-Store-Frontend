@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import Card from '../components/Card';
 
@@ -80,6 +80,17 @@ export default function Home() {
     navigate("/profile", { state: { product } });
   };
 
+  const goToTheNewCollectionPage = () => {
+    navigate("/newcollection")
+  }
+
+  const goToTheOldCollectionPage = () => {
+    navigate("/oldcollection")
+  }
+
+  const goToTheRetroPage = () => {
+    navigate("/retroshirts")
+  }
 
   const newCollectionShirts = product.length > 0 ? product.filter((shirts) =>
     shirts.description.toLowerCase().includes('24') &&
@@ -123,7 +134,7 @@ export default function Home() {
         <CollectionDescriptionContainer>
           <CollectionDescriptionTitle>COLEÇÃO DA NOVA TEMPORADA</CollectionDescriptionTitle>
           <CollectionDescriptionParagraph>- Compre em até 12x no Cartão ou à vista no PIX ou Boleto -</CollectionDescriptionParagraph>
-          <CollectionButton><Link to="/newcollection">CONFIRA NOSSA COLEÇÃO 2023/24</Link></CollectionButton>
+          <CollectionButton onClick={goToTheNewCollectionPage}>CONFIRA NOSSA COLEÇÃO 2023/24</CollectionButton>
         </CollectionDescriptionContainer>
         <MapContainer>
           {selectedNewCollectionShirts.map((product, i) => (
@@ -140,7 +151,7 @@ export default function Home() {
           <CollectionDescriptionContainer>
             <CollectionDescriptionTitle>CAMISAS RETRÔ</CollectionDescriptionTitle>
             <CollectionDescriptionParagraph>- Compre em até 12x no Cartão ou à vista no Boleto -</CollectionDescriptionParagraph>
-            <CollectionButton><Link to="/retroshirts">CONFIRA NOSSA LINHA RETRÔ</Link></CollectionButton>
+            <CollectionButton onClick={goToTheRetroPage}>CONFIRA NOSSA LINHA RETRÔ</CollectionButton>
           </CollectionDescriptionContainer>
           <MapContainer>
           {selectedRetroShirts.map((product, i) => (
@@ -156,7 +167,7 @@ export default function Home() {
           <CollectionDescriptionContainer>
             <CollectionDescriptionTitle>CAMISAS DA TEMPORADA PASSADA</CollectionDescriptionTitle>
             <CollectionDescriptionParagraph>- Compre em até 12x no Cartão ou à vista no Boleto -</CollectionDescriptionParagraph>
-            <CollectionButton><Link to="/oldcollection">CONFIRA A LINHA DA TEMPORADA PASSADA</Link></CollectionButton>
+            <CollectionButton onClick={goToTheOldCollectionPage}>CONFIRA A LINHA DA TEMPORADA PASSADA</CollectionButton>
           </CollectionDescriptionContainer>
           <MapContainer>
           {lastSeasonShirts.map((product, i) => (
