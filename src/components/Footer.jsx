@@ -1,43 +1,55 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { FooterAccountContainer, FooterContactContainer, FooterContactInfo, FooterContactLink, FooterContactUL,
+         FooterContactWrapper, FooterContainer, FooterCreditCardsContainer, FooterCreditCardsIMG, FooterCreditCardsWrapper,
+         FooterInfoContainer, FooterRightsContainer, FooterRightsReserved, FooterRightsReservedContainer, FooterRightsWrapper,
+         FooterTitle, FooterWrapper, FooterContactLI, FooterMailIcon, FooterTimeIcon } from '../styles/FooterStyles'
+
 
 export default function Footer() {
   return (
-    <div style={{background: "#f9f9f9"}}>
-        <div style={{display: "flex", alignItems: "center", justifyContent: "space-evenly", padding: "80px 0"}}>
-            <div>
-                <h3 style={{fontWeight: "bolder"}}>INFORMAÇÕES</h3>
-                <ul>
-                    <li>Política de Privacidade</li>
-                    <li>Central de Ajuda</li>
-                </ul>
-            </div>
-            <div>
-                <h3>MINHA CONTA</h3>
-                <ul>
-                    <li><Link to="/login">Fazer Login</Link></li>
-                    <li><Link to="/register">Criar Conta</Link></li>
-                </ul>
-            </div>
-            <div>
-                <h3>CONTATO</h3>
-                <div>
-                    <p>SAC WHATSAPP (54) 99638-7583</p>
-                    <p>sac@fanaticotorcedor.net</p>
-                    <p>10:00 - 18:00, Segunda - Sexta</p>
-                </div>
-            </div>
-        </div>
-        <div style={{background: "#f1f1f1"}}>
-            <div style={{padding: "50px", display: "flex", alignItems: "center", flexDirection: 'column', alignContent: 'center'}}>
-                <div>
-                    <p>© 2020 Fanático Torcedor. Todos os direitos reservados.</p>
-                </div>
-                <div>
-                    Cartões aceitos
-                </div>
-            </div>
-        </div>
-    </div>
+    <FooterContainer>
+        <FooterWrapper>
+            <FooterInfoContainer>
+                <FooterTitle>INFORMAÇÕES</FooterTitle>
+                <FooterContactUL>
+                    <FooterContactLI>Política de Privacidade</FooterContactLI>
+                    <FooterContactLI>Central de Ajuda</FooterContactLI>
+                </FooterContactUL>
+            </FooterInfoContainer>
+            <FooterAccountContainer>
+                <FooterTitle>MINHA CONTA</FooterTitle>
+                <FooterContactUL>
+                    <FooterContactLI>
+                        <FooterContactLink to="/login">Fazer Login</FooterContactLink>
+                    </FooterContactLI>
+                    <FooterContactLI>
+                        <FooterContactLink to="/register">Criar Conta</FooterContactLink>
+                    </FooterContactLI>
+                </FooterContactUL>
+            </FooterAccountContainer>
+            <FooterContactContainer>
+                <FooterTitle>CONTATO</FooterTitle>
+                <FooterContactWrapper>
+                    <FooterContactInfo>SAC WHATSAPP (31) 99808-2888</FooterContactInfo>
+                    <FooterContactInfo><FooterMailIcon/> sac@goalstore.net</FooterContactInfo>
+                    <FooterContactInfo><FooterTimeIcon /> 10:00 - 18:00, Segunda - Sexta</FooterContactInfo>
+                </FooterContactWrapper>
+            </FooterContactContainer>
+        </FooterWrapper>
+        <FooterRightsContainer>
+            <FooterRightsWrapper>
+                <FooterRightsReservedContainer>
+                    <FooterRightsReserved>© 2023 Goal Store. Todos os direitos reservados.</FooterRightsReserved>
+                </FooterRightsReservedContainer>
+                <FooterCreditCardsContainer>
+                    <FooterCreditCardsWrapper><FooterCreditCardsIMG src="https://fanaticotorcedor.net/cdn/shop/t/2/assets/icon-pay-1.png?v=98653610681555327881558545409" alt="" /></FooterCreditCardsWrapper>
+                    <FooterCreditCardsWrapper><FooterCreditCardsIMG src="https://fanaticotorcedor.net/cdn/shop/t/2/assets/icon-pay-2.png?v=132647477176406435231558545409" alt="" /></FooterCreditCardsWrapper>
+                    <FooterCreditCardsWrapper><FooterCreditCardsIMG src="https://fanaticotorcedor.net/cdn/shop/t/2/assets/icon-pay-3.png?v=154154031301599170541558545409" alt="" /></FooterCreditCardsWrapper>
+                    <FooterCreditCardsWrapper><FooterCreditCardsIMG src="https://fanaticotorcedor.net/cdn/shop/t/2/assets/icon-pay-4.png?v=61343518638440848961558545409" alt="" /></FooterCreditCardsWrapper>
+                    <FooterCreditCardsWrapper><FooterCreditCardsIMG src="https://fanaticotorcedor.net/cdn/shop/t/2/assets/icon-pay-5.png?v=99226955855195825351558545409" alt="" /></FooterCreditCardsWrapper>  
+                </FooterCreditCardsContainer>
+            </FooterRightsWrapper>
+        </FooterRightsContainer>
+    </FooterContainer>
   )
 }
