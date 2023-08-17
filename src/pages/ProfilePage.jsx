@@ -1,17 +1,17 @@
 // src/pages/ProfilePage.jsx
 import { useState, useEffect, useContext } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import { OffMessage } from "../styles/CartStyles"
 import { ProfileProductContainer, ProfileIMGContainer, ProfileInfoContainer, ProfileMainIMG, ProfileIMGWrapper, ProfileSmallIMG,
          ProfileSizeSelect, ProfileSizeQuantyContainer, ProfileSizeOption, ProfileSizeQuantyWrapper, ProfileLabel,
-         ProfileQuantyButton, ProfileQuanty, ProfileHomeLink, ProfileLink, ProfileLinksContainer, ProfileSlash,
-         ProfileProductWrapper, ProfileSizeContainer, ProfileInfoDescription, ProfileInfoName, ProfileInfoWrapper,
-         ProfilePaymentButton, ProfilePaymentButtonIcon, ProfilePaymentContainer, ProfilePaymentIMG, ProfilePaymentMessage,
-         ProfilePaymentOptionsContainer, ProfilePaymentPrice, AboutProductContainer, AboutProductInfo, AboutProductInfoContainer,
-         AboutProductTH, AboutProductTR, AboutProductTable, AboutProductTitleContainer, AboutProductWarningContainer, AboutProductWarningDescription,
-         AboutProductWarningSize, AboutProductWarningTitle, AboutProductWrapper, AboutProductTD, AboutProductTitle, StrongWord,
-         AboutProductTDSize } from "../styles/ProfileStyles.jsx"
+         ProfileQuantyButton, ProfileQuanty, ProfileProductWrapper, ProfileSizeContainer, ProfileInfoDescription, ProfileInfoName, 
+         ProfileInfoWrapper, ProfilePaymentButton, ProfilePaymentButtonIcon, ProfilePaymentContainer, ProfilePaymentIMG, 
+         ProfilePaymentMessage, ProfilePaymentOptionsContainer, ProfilePaymentPrice, AboutProductContainer, AboutProductInfo, 
+         AboutProductInfoContainer, AboutProductTH, AboutProductTR, AboutProductTable, AboutProductTitleContainer, AboutProductWarningContainer, 
+         AboutProductWarningDescription, AboutProductWarningSize, AboutProductWarningTitle, AboutProductWrapper, AboutProductTD, 
+         AboutProductTitle, StrongWord, AboutProductTDSize } from "../styles/ProfileStyles.jsx"
+import Links from '../components/Links';
 
 
 export default function ProfilePage() {
@@ -70,13 +70,7 @@ export default function ProfilePage() {
   return (
     <>
       {/* Area de Links antes do conteúdo */}
-      <ProfileLinksContainer>
-        <ProfileLink to="/"><ProfileHomeLink/></ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/oldcollection">CAMISAS DA TEMPORADA PASSADA</ProfileLink>
-      </ProfileLinksContainer>
+      <Links />
 
       {/* Container de imagens do produto, informações do produto e area para enviar-lo para o carrinho */}
       <ProfileProductContainer>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {  useNavigate } from "react-router-dom"
 import Card from "../components/Card"
 import { Container, Wrapper, MapContainer, MapWrapper, Title } from "../styles/SharedFiles"
-import { ProfileLink, ProfileHomeLink, ProfileLinksContainer, ProfileSlash } from "../styles/ProfileStyles"
+import Links from '../components/Links';
 
 export default function NationShirts() {
   const [NationShirts, setNationShirts] = useState([]);
@@ -44,13 +44,7 @@ export default function NationShirts() {
   return (
     <>
       {/* Area de Links antes do conteúdo */}
-      <ProfileLinksContainer>
-        <ProfileLink to="/"><ProfileHomeLink/></ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/oldcollection">CAMISAS DA TEMPORADA PASSADA</ProfileLink>
-      </ProfileLinksContainer>
+      <Links />
 
       <Container>
         <Wrapper>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ButtonToBuy, CartContainer, CartContainerItems, CartContainerMap, CartData, CartMapDeleteButton, CartMapDescription,
         CartMapIMG,CartMapName, CartTitle, CartWrapperButton, CartWrapperButtons, CartWrapperBuy, CartWrapperItems, CartWrapperLink, 
         CartWrapperPrice, OffMessage, DeleteIcon } from "../styles/CartStyles"
-import { ProfileLink, ProfileLinksContainer, ProfileSlash, ProfileHomeLink } from "../styles/ProfileStyles"
+import Links from '../components/Links';
 
 
 export default function CartPage() {
@@ -55,13 +55,7 @@ export default function CartPage() {
   return (
     <>
       {/* Area de Links antes do conteúdo */}
-      <ProfileLinksContainer>
-        <ProfileLink to="/"><ProfileHomeLink/></ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/oldcollection">CAMISAS DA TEMPORADA PASSADA</ProfileLink>
-      </ProfileLinksContainer>
+      <Links />
 
       {userLoggedIn ? (
         <CartContainer>

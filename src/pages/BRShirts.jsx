@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from "../components/Card"
+import Links from '../components/Links';
 import { Container, Wrapper, MapContainer, MapWrapper, Title } from "../styles/SharedFiles"
-import { ProfileLink, ProfileLinksContainer, ProfileHomeLink, ProfileSlash } from "../styles/ProfileStyles"
+
 
 export default function BRShirts() {
   const [BRShirts, setBRShirts] = useState([]);
@@ -42,14 +43,8 @@ export default function BRShirts() {
 
   return (
     <>
-    {/* Area de Links antes do conteúdo */}
-      <ProfileLinksContainer>
-        <ProfileLink to="/"><ProfileHomeLink/></ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/oldcollection">CAMISAS DA TEMPORADA PASSADA</ProfileLink>
-      </ProfileLinksContainer>
+      {/* Area de Links antes do conteúdo */}
+      <Links />
 
       <Container>
         <Wrapper>

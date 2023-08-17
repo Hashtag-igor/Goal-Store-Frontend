@@ -76,7 +76,7 @@ export default function Card({name, price, img, onClick}) {
         <CardIMG src={img} alt="" />
         <CardName>{name}</CardName>
         <CardPriceDescription>A partir de <CardPrice>R${price}</CardPrice></CardPriceDescription>
-        <CardButton onClick={goToProfilePage}><BsCart3 style={{fontSize: "20px"}}/>Comprar</CardButton>
+        <CardButton onClick={goToProfilePage}><BsCart3 style={{fontSize: "20px"}}/>COMPRAR</CardButton>
       </CardWrapper>
     </CardContainer>
   );

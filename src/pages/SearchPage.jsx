@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import { MapWrapper } from "../styles/SharedFiles"
-import { ProfileLink, ProfileHomeLink, ProfileLinksContainer, ProfileSlash } from "../styles/ProfileStyles"
+import Links from "../components/Links";
 import { styled } from "styled-components";
 
 
@@ -61,13 +61,7 @@ export default function SearchPage() {
   return (
     <>
       {/* Area de Links antes do conteúdo */}
-      <ProfileLinksContainer>
-        <ProfileLink to="/"><ProfileHomeLink/></ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/newcollection">JÁ CONHECE A NOVA COLEÇÃO?</ProfileLink>
-        <ProfileSlash> / </ProfileSlash>
-        <ProfileLink to="/oldcollection">CAMISAS DA TEMPORADA PASSADA</ProfileLink>
-      </ProfileLinksContainer>
+      <Links />
 
       <SearchContainer>
         <SearchTitle>Resultados para: <SearchTitleResults>{searchTerm}</SearchTitleResults></SearchTitle>
