@@ -25,12 +25,8 @@ const SearchTitle = styled.h2`
   width: 95%;
   font-size: 34px;
   font-weight: 400;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Oswald', sans-serif;
 `
 const SearchTitleResults = styled.span`
-  font-family: 'Inter', sans-serif;
-  font-family: 'Oswald', sans-serif;
   color: #0c441c;
   font-size: 36px;
   padding-left: 3px;

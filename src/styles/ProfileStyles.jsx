@@ -199,8 +199,6 @@ export const AboutProductTitleContainer = styled.div`
 export const AboutProductTitle = styled.h3`
     font-size: 36px;
     margin: 30px 0 40px 0;
-    font-family: 'Inter', sans-serif;
-    font-family: 'Oswald', sans-serif;
 `
 export const AboutProductWarningContainer = styled.div`
     background: #0c441c;

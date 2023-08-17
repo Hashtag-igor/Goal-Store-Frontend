@@ -41,8 +41,6 @@ const CollectionDescriptionContainer = styled.div`
   gap: 30px;
 `
 const CollectionDescriptionTitle = styled.h2`
-  font-family: 'Inter', sans-serif;
-  font-family: 'Oswald', sans-serif;
   font-size: 40px;
 `
 const CollectionDescriptionParagraph = styled.p`

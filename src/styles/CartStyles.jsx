@@ -9,8 +9,6 @@ export const CartContainer = styled.div`
 export const CartTitle = styled.h2`
   text-align: center;
   margin: 70px 0 20px 0;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Oswald', sans-serif;
   font-size: 32px;
 `
 export const CartContainerItems = styled.div`
@@ -60,8 +58,6 @@ export const CartMapDescription = styled.p`
   font-size: 16px;
 ` 
 export const CartData = styled.strong`
-  font-family: 'Inter', sans-serif;
-  font-family: 'Oswald', sans-serif;
   font-size: 20px;
   color: #f82e56;
 `
@@ -106,8 +102,7 @@ export const CartWrapperLink = styled(Link)`
 `
 export const CartWrapperPrice = styled.p`
   font-size: 40px;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Oswald', sans-serif;
+  font-weight: bolder;
 `
 export const ButtonToBuy = styled.button`
   background-color: #f82e56;

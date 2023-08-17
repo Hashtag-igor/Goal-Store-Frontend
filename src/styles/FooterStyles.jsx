@@ -30,7 +30,6 @@ export const FooterContactInfo = styled.p`
         color: #f82e56;
         cursor: pointer;
         transition: 0.3s;
-        font-weight: bolder;
   }
 `
 export const FooterMailIcon = styled(GoMail)`
@@ -54,7 +53,6 @@ export const FooterContactLink = styled(Link)`
         color: #f82e56;
         cursor: pointer;
         transition: 0.3s;
-        font-weight: bolder;
   }
 `
 export const FooterContactLI = styled.li`
@@ -65,7 +63,6 @@ export const FooterContactLI = styled.li`
         color: #f82e56;
         cursor: pointer;
         transition: 0.3s;
-        font-weight: bolder;
   }
 `
 export const FooterRightsContainer = styled.div`

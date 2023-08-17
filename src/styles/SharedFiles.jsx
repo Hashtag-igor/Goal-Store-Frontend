@@ -24,6 +24,4 @@ export const MapWrapper = styled.div``
 export const Title = styled.h1`
   font-size: 34px;
   margin: 0 0 20px 0;
-  font-family: 'Inter', sans-serif;
-  font-family: 'Oswald', sans-serif;
 `
