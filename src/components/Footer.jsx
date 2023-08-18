@@ -12,8 +12,12 @@ export default function Footer() {
             <FooterInfoContainer>
                 <FooterTitle>INFORMAÇÕES</FooterTitle>
                 <FooterContactUL>
-                    <FooterContactLI>Política de Privacidade</FooterContactLI>
-                    <FooterContactLI>Central de Ajuda</FooterContactLI>
+                    <FooterContactLI>
+                        <FooterContactLink>Política de Privacidade</FooterContactLink>
+                    </FooterContactLI>
+                    <FooterContactLI>
+                        <FooterContactLink to="/questions">Perguntas Frequentes</FooterContactLink>
+                    </FooterContactLI>
                 </FooterContactUL>
             </FooterInfoContainer>
             <FooterAccountContainer>

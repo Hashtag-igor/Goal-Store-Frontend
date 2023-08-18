@@ -19,6 +19,7 @@ import NewCollection from './pages/NewCollection';
 import GlobalStyle from "./styles/GlobalStyle";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Questions from './pages/Questions';
 
 const router =  createBrowserRouter([  
   {
@@ -76,6 +77,10 @@ const router =  createBrowserRouter([
       {
         path: "/oldcollection",
         element: <OldCollection />
+      },
+      {
+        path: "/questions",
+        element: <Questions />
       }
     ] 
   },
