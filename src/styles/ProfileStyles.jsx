@@ -1,38 +1,5 @@
 import { styled } from "styled-components";
-import { Link } from "react-router-dom"
-import { BsFillHouseFill, BsCart3 } from "react-icons/bs"
-
-
-//LINKS
-export const ProfileLinksContainer = styled.div`
-    width: 80%;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    gap: 0 8px;
-`
-export const ProfileHomeLink = styled(BsFillHouseFill)`
-    font-size: 17px;
-`
-export const ProfileSlash = styled.span`
-    font-family: "roboto"; 
-    font-size: 18px;
-    &:hover {
-        transition: 0.3s;
-        cursor: pointer;
-        color: #f82e56;
-    }
-`
-export const ProfileLink = styled(Link)`
-    color: black; 
-    font-family: "roboto";
-
-    &:hover {
-        transition: 0.3s;
-        cursor: pointer;
-        color: #f82e56;
-    }
-`
+import { BsCart3 } from "react-icons/bs"
 
 
 export const ProfileProductContainer = styled.div`

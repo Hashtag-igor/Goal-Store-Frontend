@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProfileLink, ProfileLinksContainer, ProfileHomeLink, ProfileSlash } from "../styles/ProfileStyles"
+import { ProfileLink, ProfileLinksContainer, ProfileHomeLink, ProfileSlash } from "../styles/SharedFiles"
 
 export default function Links() {
   return (
