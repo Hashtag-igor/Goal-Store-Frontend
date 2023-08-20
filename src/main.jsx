@@ -20,6 +20,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Questions from './pages/Questions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const router =  createBrowserRouter([  
   {
@@ -81,6 +82,10 @@ const router =  createBrowserRouter([
       {
         path: "/questions",
         element: <Questions />
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicy />
       }
     ] 
   },

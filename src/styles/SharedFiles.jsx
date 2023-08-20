@@ -57,3 +57,19 @@ export const ProfileLink = styled(Link)`
         color: #f82e56;
     }
 `
+
+//QUESTION AND PRIVACY PAGES
+export const PrivacyAndQuestionsWrapper = styled.div``
+export const DescriptionContainer = styled.div``
+export const Description = styled.p``
+export const Question = styled.h4`
+    margin-bottom: 10px;
+`
+export const Answer = styled.p``
+export const QuestionsOL = styled.ol``
+export const QuestionsUL = styled.ul`
+  list-style: none;
+`
+export const QuestionsLI = styled.li`
+    margin: 40px 0;
+`

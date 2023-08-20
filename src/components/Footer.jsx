@@ -13,7 +13,7 @@ export default function Footer() {
                 <FooterTitle>INFORMAÇÕES</FooterTitle>
                 <FooterContactUL>
                     <FooterContactLI>
-                        <FooterContactLink>Política de Privacidade</FooterContactLink>
+                        <FooterContactLink to="/privacy">Política de Privacidade</FooterContactLink>
                     </FooterContactLI>
                     <FooterContactLI>
                         <FooterContactLink to="/questions">Perguntas Frequentes</FooterContactLink>
