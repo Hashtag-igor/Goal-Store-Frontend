@@ -12,7 +12,10 @@ export const FixedHeaderContainer = styled.div`
   width: 100%;
   position: fixed;
   background-color: #0b3f1a;
+  border-bottom: 1px solid #0a3d19;
+  box-shadow: 3px 2px 2px #093817;
   height: 100px;
+  top: 0;
 `;
 
 export const LogoContainer = styled.div`

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import Logo from "../assets/icone.png"
 import { UserActionsLink, UserActionsAccount, UserActionsCart, UserActionsInput, UserActionsInputButton, UserActionsInputContainer,
@@ -14,6 +14,7 @@ export default function Header() {
   // const [isScrolled, setIsScrolled] = useState(false);
   const [headerState, setHeaderState] = useState("normal");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = () => {
     if (!search) return;
@@ -24,6 +25,13 @@ export default function Header() {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSubmit();
+    }
+  };
+
+  const handleLogoClick = () => {
+    // Verifica se a localização atual é a HomePage ("/") antes de rolar para o topo.
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -61,15 +69,13 @@ export default function Header() {
     };
   }, [headerState]);
   
-  
-  
 
   return (
     <>
       {headerState === "fixed" ? (
         <FixedHeaderContainer>
           <LogoContainer>
-            <UserActionsLink to="/">
+            <UserActionsLink to="/" onClick={handleLogoClick}>
               <UserActionsLogoFixed src={Logo} alt="" />
             </UserActionsLink>
           </LogoContainer>
@@ -86,7 +92,7 @@ export default function Header() {
         <HeaderContainer>
           <UserActionsContainer>
             <UserActionsWrapper>
-              <UserActionsLink to="/">
+              <UserActionsLink to="/" onClick={handleLogoClick}>
                 <UserActionsLogo src={Logo} alt="" />
               </UserActionsLink>
               <UserActionsInputContainer>
