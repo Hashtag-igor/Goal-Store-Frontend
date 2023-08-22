@@ -21,8 +21,25 @@ import GlobalStyle from "./styles/GlobalStyle";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Questions from './pages/Questions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import { UserContext } from './contexts/UserContext';
 
-const router =  createBrowserRouter([  
+// Função para verificar se o usuário está logado antes de renderizar as rotas de login e registro
+function AuthRoute({ children }) {
+  const { userLoggedIn } = React.useContext(UserContext);
+
+  if (userLoggedIn) {
+    // Se o usuário estiver logado, redirecione para a página principal
+    window.location.href = '/';
+    return null;
+  }
+
+  return children;
+}
+
+export default AuthRoute;
+
+
+const routes = [
   {
     path: "/", 
     element: <App />,                    
@@ -30,14 +47,6 @@ const router =  createBrowserRouter([
       {
         path: "/",                         
         element: <Home />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
       },
       {
         path: "/account",
@@ -86,10 +95,20 @@ const router =  createBrowserRouter([
       {
         path: "/privacy",
         element: <PrivacyPolicy />
-      }
-    ] 
+      },
+      {
+        path: "/login",
+        element: <AuthRoute><Login /></AuthRoute>,
+      },
+      {
+        path: "/register",
+        element: <AuthRoute><Register /></AuthRoute>,
+      },
+    ],
   },
-])
+]
+
+const router = createBrowserRouter(routes);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -100,3 +119,4 @@ root.render(
     </UserProvider>
   </React.StrictMode>
 );
+
