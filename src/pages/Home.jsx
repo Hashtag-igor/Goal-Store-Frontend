@@ -46,17 +46,27 @@ const CollectionDescriptionTitle = styled.h2`
 const CollectionDescriptionParagraph = styled.p`
 `
 const HomeFirstIMG = styled.div`
-  background-image: url('https://cdn.ecvol.com/s/www.ivocamisas.com.br/uploads/SITE-JUNHO-9.jpeg');
+  background-image: url('https://www.fatosdesconhecidos.com.br/wp-content/uploads/2022/11/camisas-capa.jpg');
+  /* background-image: url('https://cdn.ecvol.com/s/www.ivocamisas.com.br/uploads/SITE-JUNHO-9.jpeg'); */
   height: 600px;
   background-position: center;
   background-size: cover;
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    height: 400px;
+  }
 `
 const HomeSecondIMG = styled.div`
   background-image: url(https://th.bing.com/th/id/R.433bab1fae3960564a64eeceb657fc53?rik=uKgPF%2fIOGkAdwg&riu=http%3a%2f%2fkidutsport.com.br%2fimages%2fbanners%2fpromocional-04.jpg&ehk=DMlGN622qwGywMg5PWZY8KvHsFnnyjZdH1K28qqpsP0%3d&risl=&pid=ImgRaw&r=0);
-  padding: 300px;
+  height: 400px;
   background-position: center;
   background-size: cover;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    height: 310px;
+  }
 `
 
 export default function Home() {

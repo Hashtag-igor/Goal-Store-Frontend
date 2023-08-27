@@ -26,8 +26,8 @@ export const LogoContainer = styled.div`
 `;
 
 export const UserActionsLogoFixed = styled.img`
-  height: 90px;
-  width: 140px;
+  height: 70px;
+  width: 100px;
   padding: 5px 0;
 `;
 
@@ -54,6 +54,10 @@ export const HeaderContainer = styled.div`
   align-items: center;
   width: 100%;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    background-color: yellow;
+  }
 `;
 
 export const UserActionsContainer = styled.div`
@@ -73,14 +77,23 @@ export const UserActionsWrapper = styled.div`
 export const UserActionsLink = styled(Link)``;
 
 export const UserActionsLogo = styled.img`
-  height: 120px;
-  width: 160px;
+  height: 100px;
+  width: 140px;
 `;
 
 export const UserActionsInputContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 20px; /* Espaço entre a logo e o input */
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+    margin-right: 100px;
+  }
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const UserActionsInput = styled.input`
@@ -90,6 +103,10 @@ export const UserActionsInput = styled.input`
   font-size: 18px;
   border: 1px solid #e0e0e0;
   letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    width: 220px;
+  }
 `;
 
 export const UserActionsInputButton = styled.button`
@@ -138,4 +155,42 @@ export const NavbarWrapper = styled.div`
   justify-content: space-evenly;
   margin: auto;
 `;
+
+
+//MOBILE
+export const UserActionsLinkMobile = styled(UserActionsLink)`
+  padding: 20px 0;
+  color: black;
+  border-bottom: 1px solid #dfdfdf;
+  &:hover {
+    background-color: #fff;
+    color: #f82e56;
+  }
+`;
+
+export const UserActionsCartMobile = styled(BsCart3)`
+  color: black;
+  font-size: 32px;
+  &:hover {
+    background-color: #fff;
+    color: #f82e56;
+  }
+`;
+
+export const UserActionsAccountMobile = styled(VscAccount)`
+  color: black;
+  font-size: 32px;
+  &:hover {
+    background-color: #fff;
+    color: #f82e56;
+  }
+`;
+
+export const UserActionsLoggedInContainerMobile = styled(UserActionsLoggedInContainer)`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #dfdfdf;
+`
+
 
