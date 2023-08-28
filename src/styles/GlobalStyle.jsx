@@ -15,6 +15,22 @@ const GlobalStyle = createGlobalStyle`
         color: white;
     }
 
+    /* Estilos para a barra de rolagem */
+    ::-webkit-scrollbar {
+        width: 10px; /* Largura da barra de rolagem */
+    }
+
+    /* Estilos para o "trilho" da barra de rolagem (a área cinza) */
+    ::-webkit-scrollbar-track {
+        background-color: #fff; /* Cor de fundo do trilho */
+    }
+
+    /* Estilos para a "alça" da barra de rolagem (a parte que você arrasta) */
+    ::-webkit-scrollbar-thumb {
+        background-color: #f82e56; /* Cor da alça */
+        height: 103px;
+    }
+
 `
 
 export default GlobalStyle;
