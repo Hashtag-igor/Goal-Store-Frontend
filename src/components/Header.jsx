@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useLayoutEffect } from 'react';
+import { useContext, useState, useEffect, useLayoutEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import Logo from "../assets/icone.png"
@@ -6,7 +6,7 @@ import { UserActionsLink, UserActionsAccount, UserActionsCart, UserActionsInput,
          UserActionsInputButtonIcon, HeaderContainer, NavbarContainer, NavbarWrapper, UserActionsContainer, UserActionsLogo,
          UserActionsWrapper, UserActionsLoggedInContainer, FixedHeaderContainer, LogoContainer, NavbarContainerFixed,
          NavbarWrapperFixed, UserActionsLogoFixed, UserActionsLinkMobile, UserActionsLoggedInContainerMobile, UserActionsAccountMobile,
-         UserActionsCartMobile} from "../styles/HeaderStyles"
+         UserActionsCartMobile, UserActionsLinkMobileAccount} from "../styles/HeaderStyles"
 import "../styles/MobileStyles.css"
 
 
@@ -140,7 +140,7 @@ export default function Header() {
                   </UserActionsInputContainer>
                   {isMobile && isVisible ?
                   <div>
-                    <div className={`pagina-overlay ${aberto ? 'pagina-overlay-aberto' : ''}`} onClick={fecharMenu}>
+                    <div className={`pagina-overlay ${aberto ? 'pagina-overlay-aberto' : ''}`}>
                       <div className="pagina-conteudo">
                       {/* Conteúdo da "página" */}
                         {/* <h1>Título da Página</h1>
@@ -151,24 +151,25 @@ export default function Header() {
                         </div> */}
                           <div>
                             <div style={{width: "70%", display: "flex", flexDirection: "column"}}>
-                              <h2 style={{paddingBottom: "25px", color: "#0b3f1a", borderBottom: '1px solid #dfdfdf', fontSize: "28px"}}>MENU</h2>
+                              <h2 style={{paddingBottom: "25px", color: "#0b3f1a", fontSize: "28px"}}>MENU</h2>
+                              <UserActionsInput type="text" value={search} placeholder="Procure camisas aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
                               <UserActionsLinkMobile to="/brshirts">TIMES BRASILEIROS</UserActionsLinkMobile>
                               <UserActionsLinkMobile to="/rdmshirts">RESTO DO MUNDO</UserActionsLinkMobile>
                               <UserActionsLinkMobile to="/nationshirts">SELEÇÕES</UserActionsLinkMobile>
                               <UserActionsLinkMobile to="/retroshirts">RETRÔ</UserActionsLinkMobile>
                               {userLoggedIn ? (
                               <UserActionsLoggedInContainerMobile>
-                                <UserActionsLinkMobile to="/cart">
+                                <UserActionsLinkMobileAccount to="/cart">
                                   <UserActionsCartMobile />
-                                </UserActionsLinkMobile>
-                                <UserActionsLinkMobile to="/account">
+                                </UserActionsLinkMobileAccount>
+                                <UserActionsLinkMobileAccount to="/account">
                                   <UserActionsAccountMobile />
-                                </UserActionsLinkMobile>
+                                </UserActionsLinkMobileAccount>
                               </UserActionsLoggedInContainerMobile>
                               ) : (
                               <UserActionsLoggedInContainerMobile>
-                                <UserActionsLinkMobile to="/register">REGISTRAR-SE</UserActionsLinkMobile>
-                                <UserActionsLinkMobile to="/login">ENTRAR</UserActionsLinkMobile>
+                                <UserActionsLinkMobileAccount to="/register">REGISTRAR-SE</UserActionsLinkMobileAccount>
+                                <UserActionsLinkMobileAccount to="/login">ENTRAR</UserActionsLinkMobileAccount>
                               </UserActionsLoggedInContainerMobile>
                               )}
                             </div>
@@ -199,7 +200,7 @@ export default function Header() {
               </UserActionsContainer>
               {isMobile && isVisible ? 
                 <button style={{display: "flex", alignItems: "center"}} className="menu-toggle" onClick={toggleMenu}>
-                  <span className={`menu-icon ${aberto ? 'menu-icon-x' : 'menu-icon-vazio'}`}></span> 
+                  <span className={`menu-icon ${aberto ? 'menu-icon-x' : 'menu-icon-vazio'}`} onClick={fecharMenu}></span> 
                 </button> 
                 : 
               <NavbarContainer>

@@ -105,7 +105,7 @@ export const UserActionsInput = styled.input`
   letter-spacing: 1px;
 
   @media (max-width: 768px) {
-    width: 220px;
+    width: 100%;
   }
 `;
 
@@ -159,9 +159,18 @@ export const NavbarWrapper = styled.div`
 
 //MOBILE
 export const UserActionsLinkMobile = styled(UserActionsLink)`
-  padding: 20px 0;
+  padding: 25px 0;
   color: black;
   border-bottom: 1px solid #dfdfdf;
+  &:hover {
+    background-color: #fff;
+    color: #f82e56;
+  }
+`;
+
+export const UserActionsLinkMobileAccount = styled(UserActionsLink)`
+  padding: 25px 0;
+  color: black;
   &:hover {
     background-color: #fff;
     color: #f82e56;
@@ -190,7 +199,6 @@ export const UserActionsLoggedInContainerMobile = styled(UserActionsLoggedInCont
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border-bottom: 1px solid #dfdfdf;
 `
 
 
