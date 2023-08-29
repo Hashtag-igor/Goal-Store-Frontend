@@ -6,6 +6,10 @@ import { BsFillHouseFill } from "react-icons/bs";
 export const Container = styled.div`
   width: 90%;
   margin: 70px auto 100px auto;
+
+  @media screen and (max-width: 490px) {
+    width: 100%;
+  }
 `
 export const Wrapper = styled.div`
   width: 100%;
@@ -34,6 +38,16 @@ export const ProfileLinksContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 0 8px;
+
+    @media screen and (max-width: 670px) {
+      width: 95%;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 500px) {
+      justify-content: start;
+      padding-left: 10px;
+    }
 `
 export const ProfileHomeLink = styled(BsFillHouseFill)`
     font-size: 17px;
@@ -55,6 +69,14 @@ export const ProfileLink = styled(Link)`
         transition: 0.3s;
         cursor: pointer;
         color: #f82e56;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    @media screen and (max-width: 670px) {
+      font-size: 13px;
     }
 `
 
