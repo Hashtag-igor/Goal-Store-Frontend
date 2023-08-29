@@ -52,7 +52,7 @@ export const CollectionDescriptionTitle = styled.h2`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 26px;
+    font-size: 24px;
     margin: 0 0 15px 0;
   }
 `

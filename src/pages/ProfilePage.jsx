@@ -10,7 +10,7 @@ import { ProfileProductContainer, ProfileIMGContainer, ProfileInfoContainer, Pro
          ProfilePaymentMessage, ProfilePaymentOptionsContainer, ProfilePaymentPrice, AboutProductContainer, AboutProductInfo, 
          AboutProductInfoContainer, AboutProductTH, AboutProductTR, AboutProductTable, AboutProductTitleContainer, AboutProductWarningContainer, 
          AboutProductWarningDescription, AboutProductWarningSize, AboutProductWarningTitle, AboutProductWrapper, AboutProductTD, 
-         AboutProductTitle, StrongWord, AboutProductTDSize } from "../styles/ProfileStyles.jsx"
+         AboutProductTitle, StrongWord, AboutProductTDSize, ProfileInfoDescriptionMobile, ProfileInfoNameMobile, ProfileInfoWrapperMobile } from "../styles/ProfileStyles.jsx"
 import Links from '../components/Links';
 
 
@@ -76,6 +76,12 @@ export default function ProfilePage() {
       <ProfileProductContainer>
         {selectedProduct && (
           <ProfileProductWrapper>
+
+            <ProfileInfoWrapperMobile>
+                <ProfileInfoNameMobile>{selectedProduct.name}</ProfileInfoNameMobile>
+                <ProfileInfoDescriptionMobile>{selectedProduct.description}</ProfileInfoDescriptionMobile>
+            </ProfileInfoWrapperMobile>
+
             <ProfileIMGContainer>
               <ProfileIMGWrapper>
                 <ProfileMainIMG src={selectedProduct.img} alt={selectedProduct.name} />
@@ -178,7 +184,7 @@ export default function ProfilePage() {
             <AboutProductInfo><StrongWord>COMPOSIÇÃO:</StrongWord> Poliéster</AboutProductInfo>
             <AboutProductInfo><StrongWord>ORIGEM:</StrongWord> Importada</AboutProductInfo>
             <AboutProductInfo><StrongWord>GARANTIA:</StrongWord> Contra defeito de fabricação</AboutProductInfo>
-            <AboutProductInfo><StrongWord>PRAZO DE ENTREGA</StrongWord> O prazo de entrega estimado é de aproximadamente 25 a 60 dias ÚTEIS após o envio do Código de Rastreio. Observe que este é o prazo máximo, em média, os pedidos chegam antes dos 29 dias, variando de acordo com os serviços postais da sua cidade. </AboutProductInfo>
+            <AboutProductInfo><StrongWord>PRAZO DE ENTREGA:</StrongWord> O prazo de entrega estimado é de aproximadamente 25 a 60 dias ÚTEIS após o envio do Código de Rastreio. Observe que este é o prazo máximo, em média, os pedidos chegam antes dos 29 dias, variando de acordo com os serviços postais da sua cidade. </AboutProductInfo>
             <AboutProductInfo><StrongWord>ENVIO:</StrongWord> Para termos um ótimo preço, os produtos são enviados diretamente do nosso distribuidor no exterior diretamente para a casa do cliente.</AboutProductInfo>
           </AboutProductInfoContainer>
         </AboutProductWrapper>

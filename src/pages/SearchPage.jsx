@@ -19,17 +19,31 @@ const SearchContainer = styled.div`
   width: 90%;
   align-items: center;
   gap: 40px 0;
-  margin: 50px auto 100px auto;
+  margin: 40px auto 100px auto;
+
+  @media screen and (max-width: 490px) {
+    width: 100%;
+  }
 `
 const SearchTitle = styled.h2`
   width: 95%;
   font-size: 34px;
   font-weight: 400;
+
+  @media screen and (max-width: 490px) {
+    width: 100%;
+    padding-left: 30px;
+    font-size: 28px;
+  }
 `
 const SearchTitleResults = styled.span`
   color: #0c441c;
   font-size: 36px;
   padding-left: 3px;
+
+  @media screen and (max-width: 490px) {
+    font-size: 28px;
+  }
 `
 
 
