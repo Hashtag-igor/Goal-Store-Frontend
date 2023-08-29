@@ -17,18 +17,35 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 30px;
+
+  @media screen and (max-width: 500px) {
+    gap: 10px;
+  }
 `
 export const MapContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 30px 0;
+
+  @media screen and (max-width: 500px) {
+    gap: 0;
+  }
 `
 export const MapWrapper = styled.div``
 
 export const Title = styled.h1`
   font-size: 34px;
   margin: 0 0 20px 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 22px;
+    margin: 0 0 15px 0;
+  }
 `
 
 //LINKS
