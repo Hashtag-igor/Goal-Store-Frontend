@@ -29,6 +29,11 @@ export const UserActionsLogoFixed = styled.img`
   height: 70px;
   width: 100px;
   padding: 5px 0;
+
+  @media screen and (max-width: 430px) {
+    height: 60px;
+    width: 78px;
+  }
 `;
 
 export const NavbarContainerFixed = styled.div`
@@ -45,6 +50,11 @@ export const NavbarWrapperFixed = styled.div`
   justify-content: space-evenly;
   width: 95%;
   margin: auto;
+
+  @media screen and (max-width: 430px) {
+    width: 100%;
+    margin-right: 5px;
+  }
 `;
 
 
@@ -70,7 +80,16 @@ export const UserActionsWrapper = styled.div`
   margin: auto;
 `;
 
-export const UserActionsLink = styled(Link)``;
+export const UserActionsLink = styled(Link)`
+  @media screen and (max-width: 550px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 430px) {
+    font-size: 10px;
+    padding: 0 3px;
+  }
+`;
 
 export const UserActionsLogo = styled.img`
   height: 100px;
@@ -80,11 +99,29 @@ export const UserActionsLogo = styled.img`
 export const UserActionsInputContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 20px; /* Espaço entre a logo e o input */
 
   @media screen and (max-width: 768px) {
-    margin-left: 0;
-    margin-right: 100px;
+    margin-right: 170px;
+  }
+
+  @media screen and (max-width: 740px) {
+    margin-right: 160px;
+  }
+
+  @media screen and (max-width: 710px) {
+    margin-right: 140px;
+  }
+
+  @media screen and (max-width: 690px) {
+    margin-right: 150px;
+  }
+
+  @media screen and (max-width: 670px) {
+    margin-right: 140px;
+  }
+
+  @media screen and (max-width: 640px) {
+    margin-left: 30px;
   }
 
   @media screen and (max-width: 600px) {
@@ -109,15 +146,23 @@ export const UserActionsInput = styled.input`
   }
 
   @media (max-width: 768px) {
-    width: 300px;
+    width: 280px;
   }
 
   @media (max-width: 690px) {
-    width: 260px;
+    width: 240px;
   }
 
   @media (max-width: 640px) {
-    width: 200px;
+    width: 220px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 220px;
   }
 `;
 
@@ -213,4 +258,98 @@ export const UserActionsLoggedInContainerMobile = styled(UserActionsLoggedInCont
   width: 100%;
 `
 
+export const UserActionsHomeMobile = styled(Link)`
+  padding-bottom: 25px; 
+  color: #0b3f1a; 
+  font-size: 28px;
+  font-weight: 600;
+`;
 
+
+export const PaginaOverlayMobile = styled.div`
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: height 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    z-index: 0;
+    
+    &.pagina-overlay-aberto {
+      height: 100vh;
+      width: 100%;
+      background-color: white;
+    }
+  }
+`;
+
+export const PaginaConteudoMobileContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 50px;
+    background-color: #fff;
+    /* background-color: #0b3f1a; */
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1;
+    
+    &.pagina-overlay-aberto & {
+      transform: translateY(0);
+    }
+  }
+`;
+
+export const PaginaConteudoMobileWrapper = styled.div`
+  width: 70%;
+  display: flex; 
+  flex-direction: column;
+`
+
+export const MenuToggleMobile = styled.button`
+  @media screen and (max-width: 768px) {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 70px;
+    right: 50px;
+  }
+`;
+
+export const MenuIconMobile = styled.div`
+  @media screen and (max-width: 768px) {
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: #000;
+    position: relative;
+    display: flex;
+    transition: transform 0.3s ease;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 5px;
+      background: #000;
+    }
+
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      bottom: -10px;
+    }
+
+    &.menu-icon-x {
+      transform: rotate(45deg);
+    }
+  }
+`;

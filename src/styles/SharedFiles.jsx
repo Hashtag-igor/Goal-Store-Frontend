@@ -32,7 +32,8 @@ export const MapContainer = styled.div`
     gap: 0;
   }
 `
-export const MapWrapper = styled.div``
+export const MapWrapper = styled.div`
+`
 
 export const Title = styled.h1`
   font-size: 34px;

@@ -6,14 +6,13 @@ import { UserActionsLink, UserActionsAccount, UserActionsCart, UserActionsInput,
          UserActionsInputButtonIcon, HeaderContainer, NavbarContainer, NavbarWrapper, UserActionsContainer, UserActionsLogo,
          UserActionsWrapper, UserActionsLoggedInContainer, FixedHeaderContainer, LogoContainer, NavbarContainerFixed,
          NavbarWrapperFixed, UserActionsLogoFixed, UserActionsLinkMobile, UserActionsLoggedInContainerMobile, UserActionsAccountMobile,
-         UserActionsCartMobile, UserActionsLinkMobileAccount} from "../styles/HeaderStyles"
-import "../styles/MobileStyles.css"
+         UserActionsCartMobile, UserActionsLinkMobileAccount, UserActionsHomeMobile, PaginaOverlayMobile, PaginaConteudoMobileContainer,
+         MenuToggleMobile, MenuIconMobile, PaginaConteudoMobileWrapper} from "../styles/HeaderStyles"
 
 
 export default function Header() {
   const { userLoggedIn } = useContext(UserContext);
   const [search, setSearch] = useState('');
-  const windowWidth = window.innerWidth;
   const [headerState, setHeaderState] = useState('normal');
   const [aberto, setAberto] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -127,56 +126,42 @@ export default function Header() {
                     <UserActionsLogo src={Logo} alt="" />
                   </UserActionsLink>
                   <UserActionsInputContainer>
-                    <UserActionsInput
-                      type="text"
-                      value={search}
-                      placeholder="Procure aqui.."
-                      onChange={(e) => setSearch(e.target.value)}
-                      onKeyDown={handleKeyDown}
-                    />
+                    <UserActionsInput type="text" value={search} placeholder="Procure aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
                     <UserActionsInputButton onClick={handleSubmit}>
                       <UserActionsInputButtonIcon />
                     </UserActionsInputButton>
                   </UserActionsInputContainer>
+
                   {isMobile && isVisible ?
-                  <div>
-                    <div className={`pagina-overlay ${aberto ? 'pagina-overlay-aberto' : ''}`}>
-                      <div className="pagina-conteudo">
-                      {/* Conteúdo da "página" */}
-                        {/* <h1>Título da Página</h1>
-                        <p>Sobre</p>
-                        <div style={{display: "flex", flexDirection: "column"}}>
-                          <button>Entrar no portal</button>
-                          <button>Login</button>
-                        </div> */}
-                          <div>
-                            <div style={{width: "70%", display: "flex", flexDirection: "column"}}>
-                              <h2 style={{paddingBottom: "25px", color: "#0b3f1a", fontSize: "28px"}}>MENU</h2>
-                              <UserActionsInput type="text" value={search} placeholder="Procure camisas aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
-                              <UserActionsLinkMobile to="/brshirts">TIMES BRASILEIROS</UserActionsLinkMobile>
-                              <UserActionsLinkMobile to="/rdmshirts">RESTO DO MUNDO</UserActionsLinkMobile>
-                              <UserActionsLinkMobile to="/nationshirts">SELEÇÕES</UserActionsLinkMobile>
-                              <UserActionsLinkMobile to="/retroshirts">RETRÔ</UserActionsLinkMobile>
-                              {userLoggedIn ? (
-                              <UserActionsLoggedInContainerMobile>
-                                <UserActionsLinkMobileAccount to="/cart">
-                                  <UserActionsCartMobile />
-                                </UserActionsLinkMobileAccount>
-                                <UserActionsLinkMobileAccount to="/account">
-                                  <UserActionsAccountMobile />
-                                </UserActionsLinkMobileAccount>
-                              </UserActionsLoggedInContainerMobile>
-                              ) : (
-                              <UserActionsLoggedInContainerMobile>
-                                <UserActionsLinkMobileAccount to="/register">REGISTRAR-SE</UserActionsLinkMobileAccount>
-                                <UserActionsLinkMobileAccount to="/login">ENTRAR</UserActionsLinkMobileAccount>
-                              </UserActionsLoggedInContainerMobile>
-                              )}
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
+                  <>
+                    <PaginaOverlayMobile className={`pagina-overlay ${aberto ? 'pagina-overlay-aberto' : ''}`}>
+                      <PaginaConteudoMobileContainer className="pagina-conteudo">
+                        <PaginaConteudoMobileWrapper>
+                          <UserActionsHomeMobile to="/" onClick={handleLogoClick}>HOME</UserActionsHomeMobile>
+                          <UserActionsInput type="text" value={search} placeholder="Procure camisas aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
+                          <UserActionsLinkMobile to="/brshirts">TIMES BRASILEIROS</UserActionsLinkMobile>
+                          <UserActionsLinkMobile to="/rdmshirts">RESTO DO MUNDO</UserActionsLinkMobile>
+                          <UserActionsLinkMobile to="/nationshirts">SELEÇÕES</UserActionsLinkMobile>
+                          <UserActionsLinkMobile to="/retroshirts">RETRÔ</UserActionsLinkMobile>
+                          {userLoggedIn ? (
+                          <UserActionsLoggedInContainerMobile>
+                            <UserActionsLinkMobileAccount to="/cart">
+                            <UserActionsCartMobile />
+                            </UserActionsLinkMobileAccount>
+                            <UserActionsLinkMobileAccount to="/account">
+                              <UserActionsAccountMobile />
+                            </UserActionsLinkMobileAccount>
+                          </UserActionsLoggedInContainerMobile>
+                          ) : (
+                          <UserActionsLoggedInContainerMobile>
+                            <UserActionsLinkMobileAccount to="/register">REGISTRAR-SE</UserActionsLinkMobileAccount>
+                            <UserActionsLinkMobileAccount to="/login">ENTRAR</UserActionsLinkMobileAccount>
+                          </UserActionsLoggedInContainerMobile>
+                          )}
+                        </PaginaConteudoMobileWrapper>
+                      </PaginaConteudoMobileContainer>
+                    </PaginaOverlayMobile>
+                  </>
                   :    
                     <>
                       {userLoggedIn ? (
@@ -196,12 +181,13 @@ export default function Header() {
                       )}
                     </>
                   }
+
                 </UserActionsWrapper>
               </UserActionsContainer>
               {isMobile && isVisible ? 
-                <button style={{display: "flex", alignItems: "center"}} className="menu-toggle" onClick={toggleMenu}>
-                  <span className={`menu-icon ${aberto ? 'menu-icon-x' : 'menu-icon-vazio'}`} onClick={fecharMenu}></span> 
-                </button> 
+                <MenuToggleMobile className="menu-toggle" onClick={toggleMenu}>
+                  <MenuIconMobile className={`menu-icon ${aberto ? 'menu-icon-x' : 'menu-icon-vazio'}`} onClick={fecharMenu}></MenuIconMobile> 
+                </MenuToggleMobile> 
                 : 
               <NavbarContainer>
                 <NavbarWrapper>
