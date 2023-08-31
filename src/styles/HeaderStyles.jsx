@@ -29,11 +29,6 @@ export const UserActionsLogoFixed = styled.img`
   height: 70px;
   width: 100px;
   padding: 5px 0;
-
-  @media screen and (max-width: 430px) {
-    height: 60px;
-    width: 78px;
-  }
 `;
 
 export const NavbarContainerFixed = styled.div`
@@ -50,11 +45,6 @@ export const NavbarWrapperFixed = styled.div`
   justify-content: space-evenly;
   width: 95%;
   margin: auto;
-
-  @media screen and (max-width: 430px) {
-    width: 100%;
-    margin-right: 5px;
-  }
 `;
 
 
@@ -64,6 +54,10 @@ export const HeaderContainer = styled.div`
   align-items: center;
   width: 100%;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    background-color: yellow;
+  }
 `;
 
 export const UserActionsContainer = styled.div`
@@ -80,16 +74,7 @@ export const UserActionsWrapper = styled.div`
   margin: auto;
 `;
 
-export const UserActionsLink = styled(Link)`
-  @media screen and (max-width: 550px) {
-    font-size: 12px;
-  }
-
-  @media screen and (max-width: 430px) {
-    font-size: 10px;
-    padding: 0 3px;
-  }
-`;
+export const UserActionsLink = styled(Link)``;
 
 export const UserActionsLogo = styled.img`
   height: 100px;
@@ -99,29 +84,12 @@ export const UserActionsLogo = styled.img`
 export const UserActionsInputContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 20px; /* Espaço entre a logo e o input */
 
   @media screen and (max-width: 768px) {
-    margin-right: 170px;
-  }
-
-  @media screen and (max-width: 740px) {
-    margin-right: 160px;
-  }
-
-  @media screen and (max-width: 710px) {
-    margin-right: 140px;
-  }
-
-  @media screen and (max-width: 690px) {
+    margin-left: 40px;
     margin-right: 150px;
-  }
-
-  @media screen and (max-width: 670px) {
-    margin-right: 140px;
-  }
-
-  @media screen and (max-width: 640px) {
-    margin-left: 30px;
+    width: 100%;
   }
 
   @media screen and (max-width: 600px) {
@@ -130,39 +98,15 @@ export const UserActionsInputContainer = styled.div`
 `;
 
 export const UserActionsInput = styled.input`
-  width: 480px;
+  width: 320px;
   padding-left: 8px;
   height: 44px;
   font-size: 18px;
   border: 1px solid #e0e0e0;
   letter-spacing: 1px;
 
-  @media (max-width: 1024px) {
-    width: 380px;
-  }
-
-  @media (max-width: 850px) {
-    width: 320px;
-  }
-
   @media (max-width: 768px) {
-    width: 280px;
-  }
-
-  @media (max-width: 690px) {
-    width: 240px;
-  }
-
-  @media (max-width: 640px) {
-    width: 220px;
-  }
-
-  @media screen and (max-width: 600px) {
     width: 100%;
-  }
-
-  @media screen and (max-width: 400px) {
-    width: 220px;
   }
 `;
 
@@ -212,6 +156,7 @@ export const NavbarWrapper = styled.div`
   justify-content: space-evenly;
   margin: auto;
 `;
+
 
 
 //MOBILE
@@ -283,7 +228,7 @@ export const PaginaOverlayMobile = styled.div`
     &.pagina-overlay-aberto {
       height: 100vh;
       width: 100%;
-      background-color: white;
+      background-color: #fff;
     }
   }
 `;
@@ -292,8 +237,6 @@ export const PaginaConteudoMobileContainer = styled.div`
   @media screen and (max-width: 768px) {
     width: 100%;
     padding: 50px;
-    background-color: #fff;
-    /* background-color: #0b3f1a; */
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     z-index: 1;
@@ -353,3 +296,4 @@ export const MenuIconMobile = styled.div`
     }
   }
 `;
+

@@ -127,7 +127,7 @@ export default function Header() {
                     <UserActionsLogo src={Logo} alt="" />
                   </UserActionsLink>
                   <UserActionsInputContainer>
-                    <UserActionsInput type="text" value={search} placeholder="Procure aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
+                    <UserActionsInput type="text" value={search} placeholder="Procure camisas aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
                     <UserActionsInputButton onClick={handleSubmit}>
                       <UserActionsInputButtonIcon />
                     </UserActionsInputButton>
@@ -139,7 +139,7 @@ export default function Header() {
                       <PaginaConteudoMobileContainer className="pagina-conteudo">
                         <PaginaConteudoMobileWrapper>
                           <UserActionsHomeMobile to="/" onClick={handleLogoClick}>HOME</UserActionsHomeMobile>
-                          <UserActionsInput type="text" value={search} placeholder="Procure camisas aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
+                          <UserActionsInput type="text" value={search} placeholder="Procure aqui.." onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
                           <UserActionsLinkMobile to="/brshirts">TIMES BRASILEIROS</UserActionsLinkMobile>
                           <UserActionsLinkMobile to="/rdmshirts">RESTO DO MUNDO</UserActionsLinkMobile>
                           <UserActionsLinkMobile to="/nationshirts">SELEÇÕES</UserActionsLinkMobile>
