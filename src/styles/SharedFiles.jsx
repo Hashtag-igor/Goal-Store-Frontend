@@ -9,6 +9,7 @@ export const Container = styled.div`
 
   @media screen and (max-width: 490px) {
     width: 100%;
+    margin: 50px auto 100px auto;
   }
 `
 export const Wrapper = styled.div`
@@ -43,9 +44,14 @@ export const Title = styled.h1`
     font-size: 30px;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 490px) {
     font-size: 22px;
-    margin: 0 0 15px 0;
+    margin: 0 0 0 22px;
+  }
+
+  @media screen and (max-width: 440px) {
+    margin: 0 0 0 18px;
+    font-size: 21px;
   }
 `
 
@@ -99,14 +105,47 @@ export const ProfileLink = styled(Link)`
 `
 
 //QUESTION AND PRIVACY PAGES
-export const PrivacyAndQuestionsWrapper = styled.div``
+export const PrivacyAndQuestionsWrapper = styled.div`
+  text-align: justify;
+    
+  @media screen and (max-width: 490px) {
+    width: 90%;
+    margin: auto;
+  }
+`
 export const DescriptionContainer = styled.div``
-export const Description = styled.p``
+
+export const Description = styled.p`
+  @media screen and (max-width: 490px) {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+`
 export const Question = styled.h4`
     margin-bottom: 10px;
+
+    @media screen and (max-width: 420px) {
+      font-size: 15px;
+    }
 `
-export const Answer = styled.p``
-export const QuestionsOL = styled.ol``
+export const Answer = styled.p`
+  @media screen and (max-width: 490px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 13px;
+  }
+`
+
+export const QuestionsOL = styled.ol`
+  list-style: none;
+`
+
 export const QuestionsUL = styled.ul`
   list-style: none;
 `
