@@ -8,6 +8,7 @@ import { UserActionsLink, UserActionsAccount, UserActionsCart, UserActionsInput,
          NavbarWrapperFixed, UserActionsLogoFixed, UserActionsLinkMobile, UserActionsLoggedInContainerMobile, UserActionsAccountMobile,
          UserActionsCartMobile, UserActionsLinkMobileAccount, UserActionsHomeMobile, PaginaOverlayMobile, PaginaConteudoMobileContainer,
          MenuToggleMobile, MenuIconMobile, PaginaConteudoMobileWrapper} from "../styles/HeaderStyles"
+import "../styles/GlobalStyle"
 
 
 export default function Header() {
