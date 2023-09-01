@@ -4,9 +4,18 @@ import { Link } from "react-router-dom"
 
 export const FormContainer = styled.form`
     width: 80%;
-    margin: 70px auto;
+    margin: 70px auto 120px auto;
     padding: 40px 0 60px 0;
-    border: 1px solid #e9e9e9;
+    /* box-shadow: 0 0 5px #0c441c; */
+
+    @media (max-width: 768px) {
+        width: 90%;
+        margin: 40px auto 100px auto;
+    }
+
+    @media (max-width: 450px) {
+        margin: 25px auto 100px auto;
+    }
 `
 export const FormWrapper = styled.div`
     display: flex;
@@ -49,6 +58,15 @@ export const FormLink = styled(Link)`
 export const FormTitle = styled.h2`
     text-align: center;
     margin-bottom: 30px;
+    font-size: 30px;
+
+    @media (max-width: 600px) {
+        font-size: 26px;
+    }
+
+    @media (max-width: 450px) {
+        font-size: 24px;
+    }
 `
 export const FormButton = styled.button`
   background-color: #f82e56;
@@ -61,11 +79,19 @@ export const FormButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  letter-spacing: 1px;
 
   &:hover{
     background: #fff;
     color: #f82e56;
     cursor: pointer;
     border: 1px solid #f82e56;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 20px;
+    width: 140px;
+    height: 50px;
+    letter-spacing: 2px;
   }
 `

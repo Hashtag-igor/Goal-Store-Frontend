@@ -3,6 +3,7 @@ import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import Account from '../pages/Account';
 import { FormButton, FormLink, FormButtonArea, FormContainer, FormInput, FormInputContainer, FormLabel, FormTitle, FormWrapper} from "../styles/FormStyles"
+import Links from './Links';
 
 export default function Form({ isLogin }) {
   const [name, setName] = useState('');
@@ -157,11 +158,14 @@ export default function Form({ isLogin }) {
 
   return (
     <>
+      {/* Area de Links antes do conteúdo */}
+      <Links />
+
       {isLogin ? (
         <>
           {!autenticado ? (
             <FormContainer onSubmit={handleLogin}>
-              <FormTitle>Entrar</FormTitle>
+              <FormTitle>ENTRAR</FormTitle>
               <FormWrapper>
                 <FormInputContainer>
                   <FormLabel>Email</FormLabel>
@@ -178,34 +182,35 @@ export default function Form({ isLogin }) {
               </FormWrapper>
             </FormContainer>
           ) : (
-            <div>
-              <div>
-                <h1>teste {usuarioAtual.name}!</h1>
-                <h2>Informações do usuário</h2>
-                <p>Nome: {usuarioAtual.name}</p>
-                <p>Email: {usuarioAtual.email}</p>
-                <p>Senha: {usuarioAtual.password}</p>
-                <button onClick={handleLogout}>Sair</button>
-              </div>
-              {usuarioAtual.email === 'admin@admin.com' ? (
-                <>
-                  <ul>
-                    <h1>Usuários salvos no banco de dados</h1>
-                    {usuarios.map((usuario) => (
-                      <li key={usuario._id}>
-                        <Account name={usuario.name} email={usuario.email} password={usuario.password} />
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-            </div>
+            // <div>
+            //   <div>
+            //     <h1>teste {usuarioAtual.name}!</h1>
+            //     <h2>Informações do usuário</h2>
+            //     <p>Nome: {usuarioAtual.name}</p>
+            //     <p>Email: {usuarioAtual.email}</p>
+            //     <p>Senha: {usuarioAtual.password}</p>
+            //     <button onClick={handleLogout}>Sair</button>
+            //   </div>
+            //   {usuarioAtual.email === 'admin@admin.com' ? (
+            //     <>
+            //       <ul>
+            //         <h1>Usuários salvos no banco de dados</h1>
+            //         {usuarios.map((usuario) => (
+            //           <li key={usuario._id}>
+            //             <Account name={usuario.name} email={usuario.email} password={usuario.password} />
+            //           </li>
+            //         ))}
+            //       </ul>
+            //     </>
+            //   ) : null}
+            // </div>
+            console.log("teste")
           )}
         </>
       ) : (
         <>
           <FormContainer onSubmit={handleSubmit}>
-            <FormTitle>Criar Conta</FormTitle>
+            <FormTitle>CRIAR CONTA</FormTitle>
             <FormWrapper>
               <FormInputContainer>
                 <FormLabel>Nome</FormLabel>
