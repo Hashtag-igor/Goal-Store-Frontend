@@ -119,6 +119,7 @@ export default function ProfilePage() {
                     <ProfileQuantyButton onClick={handleIncrementQuantity}>+</ProfileQuantyButton>
                 </ProfileSizeQuantyWrapper>
               </ProfileSizeQuantyContainer>
+              
               {/* Pagemento */}
               <ProfilePaymentContainer>
                 <ProfilePaymentPrice>Preço: R${selectedProduct.price}</ProfilePaymentPrice>

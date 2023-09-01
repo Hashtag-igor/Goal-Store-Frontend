@@ -45,8 +45,8 @@ export const ProfileMainIMG = styled.img`
     height: 400px;
 
     @media screen and (max-width: 500px) {
-        width: 360px;
-        height: 360px;
+        width: 350px;
+        height: 350px;
     }
 
     @media screen and (max-width: 400px) {
@@ -140,6 +140,10 @@ export const ProfileSizeQuantyContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
     margin: auto;
+
+    @media screen and (max-width: 400px) {
+        width: 100%;
+    }
 `
 export const ProfileSizeQuantyWrapper = styled.div``
 
@@ -151,8 +155,12 @@ export const ProfileSizeSelect = styled.select`
     font-size: 18px;
     cursor: pointer;
 
-    @media screen and (min-width: 769px) and (max-width: 830px) {
+    @media screen and (max-width: 830px) {
         font-size: 16px;
+    }
+
+    @media screen and (max-width: 450px){
+        font-size: 14px;
     }
 
 `
@@ -161,7 +169,10 @@ export const ProfileSizeOption = styled.option``
 export const ProfileLabel = styled.label`
     font-size: 16px;
     padding-right: 10px;
-
+    
+    @media screen and (max-width: 400px){
+        font-size: 14px;
+    }
 `
 
 
@@ -186,6 +197,10 @@ export const ProfileQuantyButton = styled.button`
     @media screen and (min-width: 600px){
         font-size: 16px;
     }
+
+    @media screen and (max-width: 400px) {
+        padding: 1px 10px;
+    }
 `
 export const ProfileQuanty = styled.input`
     width: 48px;
@@ -197,13 +212,20 @@ export const ProfileQuanty = styled.input`
     font-weight: bolder;
 
     @media screen and (max-width: 830px) {
-        font-size: 20px;
         width: 40px;
     }
 
-    @media screen and (min-width: 600px){
-        font-size: 16px;
-        width: 10px;
+    @media screen and (max-width: 600px){
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 450px){
+        width: 30px;
+    }
+
+    @media screen and (max-width: 400px) {
+        font-size: 18px;
+        padding: 0;
     }
 `
 
@@ -215,6 +237,10 @@ export const ProfilePaymentContainer = styled.div`
     flex-direction: column; 
     gap: 10px 0;
     margin: 50px 0;
+
+    @media screen and (max-width: 450px) {
+        margin: 10px 0;
+    }
 `
 export const ProfilePaymentPrice = styled.p`
     font-size: 34px; 
@@ -231,9 +257,14 @@ export const ProfilePaymentButton = styled.button`
     border: 1px solid #f82e56; 
     margin-top: 10px;
     cursor: pointer;
+
+    @media screen and (max-width: 370px) {
+        width: 90%;
+    }
 `
 export const ProfilePaymentButtonIcon = styled(BsCart3)`
     font-size: 22px;
+    margin-right: 10px;
 `
 export const ProfilePaymentOptionsContainer = styled.div`
     margin: 30px auto; 
@@ -284,10 +315,19 @@ export const AboutProductContainer = styled.div`
     /* box-shadow: 0 0 5px #00000014; */
     box-shadow: 0 0 5px #0c441c;
     padding: 50px 0 30px 0;
+    
+    @media screen and (max-width: 500px) {
+        box-shadow: none;
+        margin: 10vh auto 5vh;
+    }
 `
 export const AboutProductWrapper = styled.div`
     width: 90%; 
     margin: auto;
+
+    @media screen and (max-width: 500px) {
+        width: 95%;
+    }
 `
 export const AboutProductTitleContainer = styled.div`
 `
@@ -297,11 +337,11 @@ export const AboutProductTitle = styled.h3`
 
     @media screen and (max-width: 768px) {
         font-size: 30px;
+        margin: 10px 0 40px 0;
     }
 
     @media screen and (max-width: 500px) {
         font-size: 28px;
-        text-align: center;
     }
 `
 export const AboutProductWarningContainer = styled.div`
@@ -328,10 +368,13 @@ export const AboutProductTable = styled.table`
     width: 90%; 
     text-align: center; 
     margin: 80px auto 0 auto;
-    box-shadow: 0 0 5px #00000029;
 
     @media screen and (max-width: 600px) {
         width: 100%;
+    }
+
+    @media screen and (max-width: 400px) {
+        margin: 60px auto 0 auto;
     }
 `
 export const AboutProductTR = styled.tr`
@@ -347,6 +390,14 @@ export const AboutProductTH = styled.th`
     @media screen and (max-width: 500px) {
         font-size: 18px;
     }
+
+    @media screen and (max-width: 400px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 370px) {
+        font-size: 15px;
+    }
 `
 export const AboutProductTD = styled.td`
     font-size: 22px;
@@ -357,6 +408,14 @@ export const AboutProductTD = styled.td`
 
     @media screen and (max-width: 500px) {
         font-size: 18px;
+    }
+
+    @media screen and (max-width: 400px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 370px) {
+        font-size: 15px;
     }
 `
 export const AboutProductTDSize = styled.td`
@@ -369,6 +428,14 @@ export const AboutProductTDSize = styled.td`
 
     @media screen and (max-width: 500px) {
         font-size: 18px;
+    }
+
+    @media screen and (max-width: 400px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 370px) {
+        font-size: 15px;
     }
 `
 export const AboutProductWarningSize = styled.p`
@@ -386,6 +453,10 @@ export const AboutProductWarningSize = styled.p`
 export const AboutProductInfoContainer = styled.ul`
     list-style: none;
     margin: 100px auto;
+
+    @media screen and (max-width: 400px) {
+        margin: 60px auto;
+    }
 `
 export const AboutProductInfo = styled.li`
     margin: 30px 0;
@@ -393,6 +464,11 @@ export const AboutProductInfo = styled.li`
 
     @media screen and (max-width: 600px) {
         font-size: 16px;
+    }
+
+    @media screen and (max-width: 400px) {
+        font-size: 15px;
+        margin: 20px 0;
     }
 `
 export const StrongWord = styled.strong``
