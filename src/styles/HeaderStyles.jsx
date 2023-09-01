@@ -29,6 +29,11 @@ export const UserActionsLogoFixed = styled.img`
   height: 70px;
   width: 100px;
   padding: 5px 0;
+
+  @media screen and (max-width: 400px) {
+    height: 70px;
+    width: 80px;
+  }
 `;
 
 export const NavbarContainerFixed = styled.div`
@@ -45,6 +50,10 @@ export const NavbarWrapperFixed = styled.div`
   justify-content: space-evenly;
   width: 95%;
   margin: auto;
+
+  @media screen and (max-width: 500px) {
+    margin-right: 15px;
+  }
 `;
 
 

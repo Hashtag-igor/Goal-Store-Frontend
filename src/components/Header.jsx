@@ -18,6 +18,7 @@ export default function Header() {
   const [aberto, setAberto] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -67,9 +68,19 @@ export default function Header() {
     };
   }, []);
 
+
   useEffect(() => {
     let isScrolling = false;
 
+    // Função para atualizar a largura da janela quando a janela for redimensionada
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Adicionar um ouvinte de evento de redimensionamento da janela
+    window.addEventListener('resize', handleResize);
+
+    // Função para lidar com o scroll
     const handleScroll = () => {
       if (!isScrolling) {
         isScrolling = true;
@@ -93,13 +104,25 @@ export default function Header() {
       }
     };
 
+    // Adicionar um ouvinte de evento de rolagem da janela
     window.addEventListener('scroll', handleScroll);
 
+    // Remover o ouvinte de evento ao desmontar o componente
     return () => {
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     };
   }, [headerState]);
+
   
+  const fixedHeaderLinks = (
+    <>
+      <UserActionsLink to="/brshirts">BRASIL</UserActionsLink>
+      <UserActionsLink to="/rdmshirts">MUNDO</UserActionsLink>
+      <UserActionsLink to="/nationshirts">SELEÇÕES</UserActionsLink>
+      <UserActionsLink to="/retroshirts">RETRÔ</UserActionsLink>
+    </>
+  );
 
   return (
         <>
@@ -112,10 +135,19 @@ export default function Header() {
               </LogoContainer>
               <NavbarContainerFixed>
                 <NavbarWrapperFixed>
-                  <UserActionsLink to="/brshirts">TIMES BRASILEIROS</UserActionsLink>
-                  <UserActionsLink to="/rdmshirts">RESTO DO MUNDO</UserActionsLink>
-                  <UserActionsLink to="/nationshirts">SELEÇÕES</UserActionsLink>
-                  <UserActionsLink to="/retroshirts">RETRÔ</UserActionsLink>
+
+                {windowWidth <= 500 ? (
+                  // Renderiza os links menores
+                  fixedHeaderLinks
+                ) : (
+                  // Renderiza os links maiores
+                  <>
+                    <UserActionsLink to="/brshirts">TIMES BRASILEIROS</UserActionsLink>
+                    <UserActionsLink to="/rdmshirts">RESTO DO MUNDO</UserActionsLink>
+                    <UserActionsLink to="/nationshirts">SELEÇÕES</UserActionsLink>
+                    <UserActionsLink to="/retroshirts">RETRÔ</UserActionsLink>
+                  </>
+                )}
                 </NavbarWrapperFixed>
               </NavbarContainerFixed>
             </FixedHeaderContainer>
