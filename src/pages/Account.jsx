@@ -10,7 +10,11 @@ const AccountContainer = styled.div`
   flex-direction: column; 
   align-items: center; 
   gap: 25px 0; 
-  margin: 70px auto 100px auto;
+  margin: 70px auto 150px auto;
+
+  @media screen and (max-width: 550px) {
+    margin: 50px auto 150px auto;
+  }
 `
 const AccountTitle = styled.h2`
   font-size: 40px;
