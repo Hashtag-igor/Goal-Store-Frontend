@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { styled } from 'styled-components';
 import Card from '../components/Card';
 import { CollectionButton, CollectionContainer, CollectionDescriptionContainer, CollectionDescriptionParagraph, CollectionDescriptionTitle,
          HomeFirstIMG, HomeSecondIMG, MapContainer, MapWrapper } from "../styles/HomeStyles"

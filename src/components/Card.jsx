@@ -39,16 +39,12 @@ const CardButton = styled.button`
 const CardContainer = styled.div`
   width: 300px; 
   height: 470px;
-  /* background: linear-gradient(to top, #ffffff, #0c441c4b, #0c441c); */
-  /* background: linear-gradient(to top, #ffffff, #0c441c4b, #0c441c84); */
   background-color: #fff;
   border-radius: 4px;
   border-bottom: 4px solid #fff;
   transition: box-shadow 0.3s ease;
 
   &:hover{
-    /* background: #ffffff;
-    border-bottom: 4px solid #0c441c; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
@@ -68,7 +64,7 @@ const CardContainer = styled.div`
     height: 450px;
   }
 
-  @media screen and (max-width: 490px) {
+  @media screen and (max-width: 500px) {
     width: 180px;
     height: 400px;
 
@@ -77,6 +73,11 @@ const CardContainer = styled.div`
     &:hover{
       box-shadow: none;
     }
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 150px;
+    height: 400px;
   }
 `
 const CardWrapper = styled.div`
@@ -88,7 +89,7 @@ const CardWrapper = styled.div`
   text-align: center;
   gap: 10px 0;
 
-  @media screen and (max-width: 490px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
   }
 `
@@ -107,9 +108,14 @@ const CardIMG = styled.img`
     height: 220px;
   }
 
-  @media screen and (max-width: 490px) {
+  @media screen and (max-width: 500px) {
     width: 180px; 
     height: 180px;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 160px; 
+    height: 160px;
   }
 `
 const CardName = styled.h3`
@@ -123,18 +129,21 @@ const CardName = styled.h3`
     font-size: 17px;
   }
 
-  @media screen and (max-width: 490px) {
+  @media screen and (max-width: 500px) {
     font-size: 15px;
   }
-
 `
 const CardPriceDescription = styled.p`
   color: #f82e56;
   font-size: 18px;
   font-weight: bolder;
 
-  @media screen and (max-width: 490px) {
+  @media screen and (max-width: 500px) {
     font-size: 16px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 15px;
   }
 `
 const CardPrice = styled.p`
@@ -147,8 +156,12 @@ const CardPrice = styled.p`
     font-size: 20px;
   }
 
-  @media screen and (max-width: 490px) {
+  @media screen and (max-width: 500px) {
     font-size: 18px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 17px;
   }
 `
 const CartIcon = styled(BsCart3)`
