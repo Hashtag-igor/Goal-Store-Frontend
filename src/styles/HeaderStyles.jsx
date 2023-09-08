@@ -232,7 +232,7 @@ export const PaginaOverlayMobile = styled.div`
     transition: height 0.3s ease;
     display: flex;
     align-items: flex-start;
-    z-index: 0;
+    z-index: 2;
     
     &.pagina-overlay-aberto {
       height: 100vh;
@@ -263,6 +263,8 @@ export const PaginaConteudoMobileWrapper = styled.div`
 `
 
 export const MenuToggleMobile = styled.button`
+  z-index: 2;
+
   @media screen and (max-width: 768px) {
     background: none;
     border: none;

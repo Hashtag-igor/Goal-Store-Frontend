@@ -3,14 +3,15 @@ import { UserContext } from '../contexts/UserContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Card from '../components/Card';
 import { CollectionButton, CollectionContainer, CollectionDescriptionContainer, CollectionDescriptionParagraph, CollectionDescriptionTitle,
-         HomeFirstIMG, HomeSecondIMG, MapContainer, MapWrapper } from "../styles/HomeStyles"
-
+         HomeSecondIMG, MapContainer, MapWrapper } from "../styles/HomeStyles"
+import Carousel from '../components/Carousel';
 
 export default function Home() {
   const [product, setProduct] = useState([])
   const { userLoggedIn } = useContext(UserContext);
   const location = useLocation();
   const navigate = useNavigate();
+  
 
   const searchProducts = () => {
     fetch("http://localhost:3001/products")
@@ -74,7 +75,8 @@ export default function Home() {
 
   return (
     <>
-      <HomeFirstIMG></HomeFirstIMG>
+      {/* <HomeFirstIMG></HomeFirstIMG> */}
+      <Carousel />
 
       {/* Nova Coleção */}
       <CollectionContainer> 
