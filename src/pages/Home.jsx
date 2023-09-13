@@ -52,13 +52,14 @@ export default function Home() {
     ) : []      
         
   const lastSeasonShirts = product.length > 0 ? product.filter((shirts) => 
-    shirts.name.toLowerCase().includes('2021/22') &&
+    shirts.description.toLowerCase().includes('2022/23') &&
     !shirts.description?.toLowerCase().includes('retrô')
     ) : [] 
 
 
   const selectedNewCollectionShirts = newCollectionShirts.slice(0, 8);
   const selectedRetroShirts = retroShirts.slice(0, 8)
+  const selectLastSeasonShirts = lastSeasonShirts.slice(0, 8)
 
   useEffect(() => {
     searchProducts(); // Chamada da função aqui
@@ -119,7 +120,7 @@ export default function Home() {
             <CollectionButton onClick={goToTheOldCollectionPage}>CONFIRA A LINHA DA TEMPORADA PASSADA</CollectionButton>
           </CollectionDescriptionContainer>
           <MapContainer>
-          {lastSeasonShirts.map((product, i) => (
+          {selectLastSeasonShirts.map((product, i) => (
             <MapWrapper key={i}>
               <Card onClick={() => goToTheProfilePage(product)} name={product.name} description={product.description} price={product.price} img={product.img} img_back={product.img_back}/>
             </MapWrapper>

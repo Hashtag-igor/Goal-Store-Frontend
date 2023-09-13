@@ -97,8 +97,13 @@ export const ProfileInfoName = styled.h2`
 `
 export const ProfileInfoDescription = styled.p`
     font-size: 18px; 
-    margin: 8px auto;
-    width: 80%;
+    margin: 20px auto 5px auto;
+    width: 100%;
+    text-align: justify;
+
+    @media screen and (max-width: 800px) {
+        width: 90%;
+    }
 `
 
 //INFO MOBILE
@@ -124,7 +129,8 @@ export const ProfileInfoNameMobile = styled.h2`
 export const ProfileInfoDescriptionMobile = styled.p`
     font-size: 18px; 
     margin: 15px auto;
-    width: 80%;
+    width: 90%;
+    text-align: justify;
 
     @media screen and (max-width: 450px) {
         font-size: 16px;
@@ -140,6 +146,11 @@ export const ProfileSizeQuantyContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
     margin: auto;
+
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+        gap: 0 20px;
+    }
 
     @media screen and (max-width: 400px) {
         width: 100%;
@@ -242,11 +253,6 @@ export const ProfilePaymentContainer = styled.div`
         margin: 10px 0;
     }
 `
-export const ProfilePaymentPrice = styled.p`
-    font-size: 34px; 
-    color: #f82e56;
-    font-weight: bolder;
-`
 export const ProfilePaymentButton = styled.button`
     background-color: #f82e56; 
     color: white;
@@ -311,12 +317,16 @@ export const ProfilePaymentMessage = styled.p`
 //ABOUT PRODUCT
 export const AboutProductContainer = styled.div`
     width: 90%;
-    margin: 25vh auto 15vh;
+    margin: 25vh auto 35vh;
     /* box-shadow: 0 0 5px #00000014; */
     box-shadow: 0 0 5px #0c441c;
     padding: 50px 0 30px 0;
     
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
+        margin: 10vh auto 30vh;
+    }
+
+    @media screen and (max-width: 550px) {
         box-shadow: none;
         margin: 10vh auto 5vh;
     }

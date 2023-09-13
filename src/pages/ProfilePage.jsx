@@ -7,11 +7,12 @@ import { ProfileProductContainer, ProfileIMGContainer, ProfileInfoContainer, Pro
          ProfileSizeSelect, ProfileSizeQuantyContainer, ProfileSizeOption, ProfileSizeQuantyWrapper, ProfileLabel,
          ProfileQuantyButton, ProfileQuanty, ProfileProductWrapper, ProfileSizeContainer, ProfileInfoDescription, ProfileInfoName, 
          ProfileInfoWrapper, ProfilePaymentButton, ProfilePaymentButtonIcon, ProfilePaymentContainer, ProfilePaymentIMG, 
-         ProfilePaymentMessage, ProfilePaymentOptionsContainer, ProfilePaymentPrice, AboutProductContainer, AboutProductInfo, 
+         ProfilePaymentMessage, ProfilePaymentOptionsContainer, AboutProductContainer, AboutProductInfo, 
          AboutProductInfoContainer, AboutProductTH, AboutProductTR, AboutProductTable, AboutProductTitleContainer, AboutProductWarningContainer, 
          AboutProductWarningDescription, AboutProductWarningSize, AboutProductWarningTitle, AboutProductWrapper, AboutProductTD, 
          AboutProductTitle, StrongWord, AboutProductTDSize, ProfileInfoDescriptionMobile, ProfileInfoNameMobile, ProfileInfoWrapperMobile } from "../styles/ProfileStyles.jsx"
 import Links from '../components/Links';
+import { CartWrapperPrice } from '../styles/CartStyles';
 
 
 export default function ProfilePage() {
@@ -122,7 +123,7 @@ export default function ProfilePage() {
               
               {/* Pagemento */}
               <ProfilePaymentContainer>
-                <ProfilePaymentPrice>Preço: R${selectedProduct.price}</ProfilePaymentPrice>
+                <CartWrapperPrice>Preço: R${selectedProduct.price}</CartWrapperPrice>
                 {userLoggedIn ? (
                   <ProfilePaymentButton onClick={handleAddToCart}><ProfilePaymentButtonIcon/> Adicionar ao carrinho</ProfilePaymentButton>
                 ) : (

@@ -5,11 +5,18 @@ import { BsFillHouseFill } from "react-icons/bs";
 // Estilizações das Rotas de Camisas
 export const Container = styled.div`
   width: 90%;
-  margin: 70px auto 100px auto;
+  margin: 70px auto 160px auto;
+
+  @media screen and (max-width: 768px) {
+    margin: 60px auto 140px auto;
+  }
+
+  @media screen and (max-width: 550px) {
+    margin: 50px auto 70px auto;
+  }
 
   @media screen and (max-width: 490px) {
     width: 100%;
-    margin: 50px auto 100px auto;
   }
 `
 export const Wrapper = styled.div`
@@ -38,7 +45,8 @@ export const MapWrapper = styled.div`
 
 export const Title = styled.h1`
   font-size: 34px;
-  margin: 0 0 20px 0;
+  text-align: center;
+  padding-bottom: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 30px;
@@ -46,11 +54,9 @@ export const Title = styled.h1`
 
   @media screen and (max-width: 490px) {
     font-size: 22px;
-    margin: 0 0 0 22px;
   }
 
   @media screen and (max-width: 440px) {
-    margin: 0 0 0 18px;
     font-size: 21px;
   }
 `

@@ -264,21 +264,25 @@ export const ButtonToBuy = styled.button`
   width: 250px;
   font-weight: bolder;
   border: 1px solid #f82e56;
-  margin-top: 15px;
+  margin: 15px auto 80px auto;
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 550px) {
+    margin: 15px 0;
   }
 `
 export const OffMessage = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 120px;
+  margin-bottom: 220px;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     width: 80%;
-    margin: auto;
+    margin: 0 auto 140px auto;
     gap: 20px;
   }
 `

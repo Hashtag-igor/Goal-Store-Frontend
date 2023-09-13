@@ -19,7 +19,11 @@ const SearchContainer = styled.div`
   width: 90%;
   align-items: center;
   gap: 40px 0;
-  margin: 40px auto 100px auto;
+  margin: 40px auto 160px auto;
+
+  @media screen and (max-width: 768px) {
+    margin: 0 auto 130px auto;
+  }
 
   @media screen and (max-width: 490px) {
     width: 100%;

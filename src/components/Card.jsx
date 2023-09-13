@@ -77,7 +77,7 @@ const CardContainer = styled.div`
 
   @media screen and (max-width: 400px) {
     width: 150px;
-    height: 400px;
+    height: 380px;
   }
 `
 const CardWrapper = styled.div`

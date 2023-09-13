@@ -36,8 +36,7 @@ export default function RetroShirts() {
       ? RetroShirts.filter(
           (shirts) =>
             shirts.description.toLowerCase().includes('retrô') &&
-            !shirts.description.toLowerCase().includes('rdm') &&
-            !shirts.description?.toLowerCase().includes('seleção') 
+            !shirts.description.toLowerCase().includes('rdm')    
         )
       : [];
 

@@ -35,7 +35,7 @@ export default function OldCollection() {
     RDMShirts.length > 0
       ? RDMShirts.filter(
           (shirts) =>
-            shirts.name.toLowerCase().includes('2021/22') &&
+            shirts.name.toLowerCase().includes('2022/23') &&
             !shirts.description?.toLowerCase().includes('retrô')
         )
       : [];

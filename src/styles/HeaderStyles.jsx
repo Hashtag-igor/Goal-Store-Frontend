@@ -26,13 +26,18 @@ export const LogoContainer = styled.div`
 `;
 
 export const UserActionsLogoFixed = styled.img`
-  height: 70px;
-  width: 100px;
+  height: 90px;
+  width:  120px;
   padding: 5px 0;
+
+  @media screen and (max-width: 768px) {
+    height: 80px;
+    width:  100px;
+  }
 
   @media screen and (max-width: 400px) {
     height: 70px;
-    width: 80px;
+    width:  90px;
   }
 `;
 
