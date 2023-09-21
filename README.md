@@ -19,21 +19,19 @@
 # Previa do Projeto nas versões para Desktop, Tablet e Mobile:
 
 ### DESKTOP VERSION
-![Alt text](./assets/desktop.png) 
+![Alt text](./src/assets/desktop.png) 
 
 
 ---
 
 
 ### TABLET VERSION
-![Alt text](./assets/tablet1.png) 
-![Alt text](./assets/tablet2.png) 
+![Alt text](./src/assets/tablet1.png) 
 
 
 ---
 
 
 ### MOBILE VERSION
-![Alt text](./assets/mobile1.png)
-![Alt text](./assets/mobile2.png)
-![Alt text](./assets/mobile3.png)
+![Alt text](./src/assets/mobile1.png)
+![Alt text](./src/assets/mobile2.png)
