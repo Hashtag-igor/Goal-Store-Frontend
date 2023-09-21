@@ -27,7 +27,6 @@
 
 ### TABLET VERSION
 ![Alt text](./src/assets/tablet1.png) 
-![Alt text](./src/assets/tablet2.png) 
 
 
 ---
@@ -35,5 +34,4 @@
 
 ### MOBILE VERSION
 ![Alt text](./src/assets/mobile1.png)
-![Alt text](./src/assets/mobile1.png)
-![Alt text](./src/assets/mobile1.png)
+![Alt text](./src/assets/mobile2.png)
