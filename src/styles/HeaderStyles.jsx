@@ -26,18 +26,13 @@ export const LogoContainer = styled.div`
 `;
 
 export const UserActionsLogoFixed = styled.img`
-  height: 90px;
-  width:  120px;
+  height: 70px;
+  width: 100px;
   padding: 5px 0;
-
-  @media screen and (max-width: 768px) {
-    height: 80px;
-    width:  100px;
-  }
 
   @media screen and (max-width: 400px) {
     height: 70px;
-    width:  90px;
+    width: 80px;
   }
 `;
 
@@ -220,9 +215,9 @@ export const UserActionsLoggedInContainerMobile = styled(UserActionsLoggedInCont
 export const UserActionsHomeMobile = styled(Link)`
   padding-bottom: 25px; 
   color: #0b3f1a; 
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 600;
-`;
+`
 
 
 export const PaginaOverlayMobile = styled.div`
@@ -237,12 +232,29 @@ export const PaginaOverlayMobile = styled.div`
     transition: height 0.3s ease;
     display: flex;
     align-items: flex-start;
-    z-index: 2;
+    z-index: 1;
     
     &.pagina-overlay-aberto {
       height: 100vh;
       width: 100%;
       background-color: #fff;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+
+    &.pagina-overlay-aberto {
+      height: 110vh;
+    }
+  }
+
+  @media (orientation: landscape) {
+    @media screen and (max-width: 768px) {
+      z-index: 1;
+
+      &.pagina-overlay-aberto {
+        height: 170vh;
+      }
     }
   }
 `;
@@ -253,10 +265,20 @@ export const PaginaConteudoMobileContainer = styled.div`
     padding: 50px;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
-    z-index: 1;
+    z-index: 0;
     
     &.pagina-overlay-aberto & {
       transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+  }
+
+  @media (orientation: landscape) {
+    @media screen and (max-width: 768px) {
+      padding: 10px 15px;
     }
   }
 `;
@@ -268,8 +290,6 @@ export const PaginaConteudoMobileWrapper = styled.div`
 `
 
 export const MenuToggleMobile = styled.button`
-  z-index: 2;
-
   @media screen and (max-width: 768px) {
     background: none;
     border: none;
@@ -277,14 +297,26 @@ export const MenuToggleMobile = styled.button`
     position: absolute;
     top: 70px;
     right: 50px;
+    z-index: 1;
+  }
+
+  @media screen and (max-width: 350px) {
+    top: 60px;
+    right: 40px;
+  }
+
+  @media (orientation: landscape) {
+    @media screen and (max-width: 768px) {
+      z-index: 1;
+    }
   }
 `;
 
 export const MenuIconMobile = styled.div`
   @media screen and (max-width: 768px) {
     display: block;
-    width: 40px;
-    height: 5px;
+    width: 50px;
+    height: 8px;
     background: #000;
     position: relative;
     display: flex;
@@ -294,17 +326,17 @@ export const MenuIconMobile = styled.div`
     &::after {
       content: '';
       position: absolute;
-      width: 40px;
-      height: 5px;
+      width: 50px;
+      height: 8px;
       background: #000;
     }
 
     &::before {
-      top: -10px;
+      top: -12px;
     }
 
     &::after {
-      bottom: -10px;
+      bottom: -12px;
     }
 
     &.menu-icon-x {
