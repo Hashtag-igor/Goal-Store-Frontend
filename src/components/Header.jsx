@@ -86,7 +86,7 @@ export default function Header() {
         isScrolling = true;
 
         const scrollY = window.scrollY;
-        const headerActivationHeight = 280;
+        const headerActivationHeight = 500;
         const scrollThreshold = 50;
         const isHeaderFixed = scrollY > headerActivationHeight;
 
