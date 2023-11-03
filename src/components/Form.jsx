@@ -13,12 +13,12 @@ export default function Form({ isLogin }) {
   const [usuarioAtual, setUsuarioAtual] = useState(null);
   const [loading, setLoading] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const { setUsuarios, setAllUsersData, updateUserLoggedIn, usuarios } = useContext(UserContext);
+  const { setUsuarios, setAllUsersData, updateUserLoggedIn } = useContext(UserContext);
 
   const navigate = useNavigate();
 
   const searchUsers = () => {
-    return fetch('http://localhost:3001/users')
+    return fetch('https://goal-store-backend.vercel.app/users')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar os usuários.');
@@ -36,7 +36,7 @@ export default function Form({ isLogin }) {
   
     try {
       // Consulta o backend para buscar a lista de usuários
-      const response = await fetch('http://localhost:3001/users');
+      const response = await fetch('https://goal-store-backend.vercel.app/users');
       const data = await response.json();
   
       // Salva os usuários no estado local (usuarios) e no contexto
@@ -112,7 +112,7 @@ export default function Form({ isLogin }) {
         // Cria um novo usuário
         const usuario = { name, email, password };
 
-        fetch('http://localhost:3001/users', {
+        fetch('https://goal-store-backend.vercel.app/users', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(usuario),

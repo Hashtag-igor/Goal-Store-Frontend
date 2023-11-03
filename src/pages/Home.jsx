@@ -14,7 +14,7 @@ export default function Home() {
   
 
   const searchProducts = () => {
-    fetch("http://localhost:3001/products")
+    fetch("https://goal-store-backend.vercel.app/products")
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
