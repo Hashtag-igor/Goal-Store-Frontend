@@ -13,12 +13,12 @@ export default function Form({ isLogin }) {
   const [usuarioAtual, setUsuarioAtual] = useState(null);
   const [loading, setLoading] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const { setUsuarios, setAllUsersData, updateUserLoggedIn, usuarios } = useContext(UserContext);
+  const { setUsuarios, setAllUsersData, updateUserLoggedIn } = useContext(UserContext);
 
   const navigate = useNavigate();
 
   const searchUsers = () => {
-    return fetch('http://localhost:3001/users')
+    return fetch('https://goal-store-backend.vercel.app/users')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar os usuários.');
@@ -36,7 +36,7 @@ export default function Form({ isLogin }) {
   
     try {
       // Consulta o backend para buscar a lista de usuários
-      const response = await fetch('http://localhost:3001/users');
+      const response = await fetch('https://goal-store-backend.vercel.app/users');
       const data = await response.json();
   
       // Salva os usuários no estado local (usuarios) e no contexto
@@ -112,7 +112,7 @@ export default function Form({ isLogin }) {
         // Cria um novo usuário
         const usuario = { name, email, password };
 
-        fetch('http://localhost:3001/users', {
+        fetch('https://goal-store-backend.vercel.app/users', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(usuario),
@@ -182,29 +182,7 @@ export default function Form({ isLogin }) {
               </FormWrapper>
             </FormContainer>
           ) : (
-            // <div>
-            //   <div>
-            //     <h1>teste {usuarioAtual.name}!</h1>
-            //     <h2>Informações do usuário</h2>
-            //     <p>Nome: {usuarioAtual.name}</p>
-            //     <p>Email: {usuarioAtual.email}</p>
-            //     <p>Senha: {usuarioAtual.password}</p>
-            //     <button onClick={handleLogout}>Sair</button>
-            //   </div>
-            //   {usuarioAtual.email === 'admin@admin.com' ? (
-            //     <>
-            //       <ul>
-            //         <h1>Usuários salvos no banco de dados</h1>
-            //         {usuarios.map((usuario) => (
-            //           <li key={usuario._id}>
-            //             <Account name={usuario.name} email={usuario.email} password={usuario.password} />
-            //           </li>
-            //         ))}
-            //       </ul>
-            //     </>
-            //   ) : null}
-            // </div>
-            console.log("teste")
+            null
           )}
         </>
       ) : (

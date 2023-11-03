@@ -58,7 +58,7 @@ export default function SearchPage() {
   const navigate = useNavigate()
 
   const fetchProducts = (searchTerm) => {
-    fetch(`http://localhost:3001/products/search?q=${searchTerm}`)
+    fetch(`https://goal-store-backend.vercel.app/products/search?q=${searchTerm}`)
       .then((response) => response.json())
       .then((data) => {
         setSearchProducts(data);

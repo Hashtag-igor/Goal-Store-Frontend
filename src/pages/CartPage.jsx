@@ -47,12 +47,6 @@ export default function CartPage() {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
-  // useEffect(() => {
-  //   if (!userLoggedIn) {
-  //     navigate('/');
-  //   }
-  // }, [userLoggedIn, navigate]);
-
   useEffect(() => {
     // Efeito relacionado a userLoggedIn
     if (!userLoggedIn) {

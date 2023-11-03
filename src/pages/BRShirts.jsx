@@ -11,7 +11,7 @@ export default function BRShirts() {
 
   // Função para buscar as camisas da API e atualizar o estado
   function buscarCamisas() {
-    fetch('http://localhost:3001/products')
+    fetch('https://goal-store-backend.vercel.app/products')
       .then(response => response.json())
       .then(data => {
         setBRShirts(data);
