@@ -23,22 +23,6 @@ export default function Links() {
     };
   }, []);
 
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setWindowWidth(window.innerWidth);
-  //   };
-
-  //   // Adicione um ouvinte de redimensionamento para atualizar o estado quando a largura da tela mudar
-  //   window.addEventListener('resize', handleResize);
-
-  //   // Limpe o ouvinte de redimensionamento quando o componente for desmontado
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
-  // }
-
   // Renderize o conteúdo
   return (
     <>

@@ -182,29 +182,7 @@ export default function Form({ isLogin }) {
               </FormWrapper>
             </FormContainer>
           ) : (
-            // <div>
-            //   <div>
-            //     <h1>teste {usuarioAtual.name}!</h1>
-            //     <h2>Informações do usuário</h2>
-            //     <p>Nome: {usuarioAtual.name}</p>
-            //     <p>Email: {usuarioAtual.email}</p>
-            //     <p>Senha: {usuarioAtual.password}</p>
-            //     <button onClick={handleLogout}>Sair</button>
-            //   </div>
-            //   {usuarioAtual.email === 'admin@admin.com' ? (
-            //     <>
-            //       <ul>
-            //         <h1>Usuários salvos no banco de dados</h1>
-            //         {usuarios.map((usuario) => (
-            //           <li key={usuario._id}>
-            //             <Account name={usuario.name} email={usuario.email} password={usuario.password} />
-            //           </li>
-            //         ))}
-            //       </ul>
-            //     </>
-            //   ) : null}
-            // </div>
-            console.log("teste")
+            null
           )}
         </>
       ) : (
