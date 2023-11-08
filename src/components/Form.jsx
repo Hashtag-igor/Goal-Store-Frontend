@@ -1,8 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
-import Account from '../pages/Account';
-import { FormButton, FormLink, FormButtonArea, FormContainer, FormInput, FormInputContainer, FormLabel, FormTitle, FormWrapper} from "../styles/FormStyles"
+import { FormButton, FormLink, FormButtonArea, FormContainer, FormInput, FormInputContainer, FormLabel, FormTitle, FormWrapper } from "../styles/FormStyles";
 import Links from './Links';
 
 export default function Form({ isLogin }) {
@@ -13,78 +12,55 @@ export default function Form({ isLogin }) {
   const [usuarioAtual, setUsuarioAtual] = useState(null);
   const [loading, setLoading] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const { setUsuarios, setAllUsersData, updateUserLoggedIn } = useContext(UserContext);
+  const { updateUserLoggedIn } = useContext(UserContext);
 
   const navigate = useNavigate();
 
-  const searchUsers = () => {
-    return fetch('https://goal-store-backend.vercel.app/users')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Erro ao buscar os usuários.');
-        }
-        return response.json();
-      })
-      .catch((error) => {
-        console.error(error);
-        return [];
-      });
-  };
+  const searchUserByEmail = async (email) => {
+    try {
+      const response = await fetch(`https://goal-store-backend.vercel.app/users/search?email=${email}`);
 
+      if (!response.ok) {
+        throw new Error('Erro ao buscar o usuário.');
+      }
+  
+      const userData = await response.json();
+      return userData;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
+  
   const handleLogin = async (e) => {
     e.preventDefault();
   
     try {
-      // Consulta o backend para buscar a lista de usuários
-      const response = await fetch('https://goal-store-backend.vercel.app/users');
-      const data = await response.json();
+      const userData = await searchUserByEmail(email);
   
-      // Salva os usuários no estado local (usuarios) e no contexto
-      setUsuarios(data);
-      setAllUsersData(data);
-  
-      const isAdmin = email === 'admin@admin.com' && password === '123';
-  
-      if (isAdmin) {
-        setAutenticado(true);
-        const adminUser = {
-          name: 'Admin',
-          email: 'admin@admin.com',
-          password: '123',
-          isAdmin: true,
-        };
-        setUsuarioAtual(adminUser);
-        updateUserLoggedIn(adminUser); // Atualiza o estado do usuário logado
-        return; // Interrompe a execução da função
+      if (!userData) {
+        alert('Usuário não encontrado! Tente novamente');
+        return;
       }
   
-      const usuario = data.find((u) => u.email === email);
+      const { password: storedPassword } = userData;
   
-      if (usuario && usuario.password === password) {
-        setAutenticado(true);
-        setUsuarioAtual(usuario);
-        updateUserLoggedIn(usuario); // Atualiza o estado do usuário logado
-        navigate('/account', { state: { user: usuario } });
+      if (password === storedPassword) {
+        // Senhas coincidem, você pode autenticar o usuário
+        // Atualize o estado do usuário no contexto com o usuário autenticado
+        updateUserLoggedIn(userData);
+  
+        // Resto do seu código de redirecionamento e autenticação
+        navigate('/account', { state: { user: userData } });
       } else {
-        setAutenticado(false);
-        setUsuarioAtual(null);
-        alert('Usuário não encontrado! Tente novamente');
+        alert('Senha incorreta! Tente novamente');
       }
     } catch (error) {
-      console.error('Erro ao buscar usuários:', error);
-      alert('Ocorreu um erro ao buscar usuários. Tente novamente mais tarde.');
+      console.error('Erro ao fazer login:', error);
+      alert('Ocorreu um erro ao fazer login. Tente novamente mais tarde.');
     }
   };
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-
-    setAutenticado(false);
-    setUsuarioAtual(null);
-    setEmail('');
-    setPassword('');
-  };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -95,15 +71,12 @@ export default function Form({ isLogin }) {
     }
 
     try {
-      // Primeiro, busca os usuários no banco de dados
-      const data = await searchUsers();
+      // Consulta o backend para verificar se o email já existe
+      const user = await searchUserByEmail(email);
 
-      // Verifica se o email já existe na lista de usuários
-      const checkUser = data.find((u) => u.email === email);
-
-      if (checkUser) {
+      if (user) {
         // Usuário já cadastrado com o mesmo email
-        alert('Usuário já cadastrado com esse email.. Tente novamente com outro email');
+        alert('Usuário já cadastrado com esse email. Tente novamente com outro email.');
         setName('');
         setEmail('');
         setPassword('');
@@ -112,6 +85,7 @@ export default function Form({ isLogin }) {
         // Cria um novo usuário
         const usuario = { name, email, password };
 
+        // Envia os dados do novo usuário para o backend
         fetch('https://goal-store-backend.vercel.app/users', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -153,7 +127,6 @@ export default function Form({ isLogin }) {
     if (submitSuccess) {
       alert('Usuário cadastrado com sucesso!');
     }
-    searchUsers();
   }, [submitSuccess]);
 
   return (
@@ -173,7 +146,7 @@ export default function Form({ isLogin }) {
                 </FormInputContainer>
                 <FormInputContainer>
                   <FormLabel>Senha</FormLabel>
-                  <FormInput type="text" value={password} placeholder='Senha' onChange={(e) => setPassword(e.target.value)} />
+                  <FormInput type="password" value={password} placeholder='Senha' onChange={(e) => setPassword(e.target.value)} />
                 </FormInputContainer>
                 <FormButtonArea>
                   <FormButton>Enviar</FormButton>
@@ -181,9 +154,7 @@ export default function Form({ isLogin }) {
                 </FormButtonArea>
               </FormWrapper>
             </FormContainer>
-          ) : (
-            null
-          )}
+          ) : null}
         </>
       ) : (
         <>
@@ -192,7 +163,7 @@ export default function Form({ isLogin }) {
             <FormWrapper>
               <FormInputContainer>
                 <FormLabel>Nome</FormLabel>
-                <FormInput type="text" value={name} placeholder='Nome' onChange={(e) => setName(e.target.value)}/>
+                <FormInput type="text" value={name} placeholder='Nome' onChange={(e) => setName(e.target.value)} />
               </FormInputContainer>
               <FormInputContainer>
                 <FormLabel>Email</FormLabel>
@@ -215,4 +186,3 @@ export default function Form({ isLogin }) {
     </>
   );
 }
-

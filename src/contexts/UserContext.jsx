@@ -1,11 +1,9 @@
-import React, { useState, createContext, useEffect } from 'react';
+import { useState, createContext, useEffect } from 'react';
 
 export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
   const [userLoggedIn, setUserLoggedIn] = useState(null);
-  const [usuarios, setUsuarios] = useState([]);
-  const [allUsersData, setAllUsersData] = useState([]);
   const [userCart, setUserCart] = useState([]); // Adicione o estado para o carrinho
 
   // Função para atualizar o estado do usuário logado e também salvar no Local Storage
@@ -116,10 +114,6 @@ export default function UserProvider({ children }) {
       value={{
         userLoggedIn,
         updateUserLoggedIn,
-        usuarios,
-        setUsuarios,
-        allUsersData,
-        setAllUsersData,
         userCart: getUserCart(), // Obtem o carrinho do usuário logado
         addItemToCart,
         removeItemFromCart, // Adiciona a função removeItemFromCart ao contexto
