@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-
+import { TbKeyOff, TbKey } from "react-icons/tb"
 
 export const AccountContainer = styled.div`
   display: flex;
@@ -58,6 +58,12 @@ export const AccountInfo = styled.p`
     font-size: 17px;
   }
 `
+export const AccoutPasswordContainer = styled.div`
+  display: flex; 
+  gap: 0 25px;
+`
+export const AccountPasswordButton = styled.button`
+`
 export const AccountWarning = styled.p`
   margin-top: 60px;
 
@@ -65,4 +71,12 @@ export const AccountWarning = styled.p`
     text-align: center;
     font-size: 15px;
   }
+`
+export const KeyOff = styled(TbKeyOff)`
+  padding: 0 10px;
+  font-size: 20px;
+`
+export const KeyOn = styled(TbKey)`
+  padding: 0 10px;
+  font-size: 20px;
 `
