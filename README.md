@@ -11,7 +11,7 @@ React, Node.js e MongoDB.
 
 ### Acesse o projeto completo:
 
-https://goal-store-frontend.vercel.app/
+https://goalstore.vercel.app/
 
 
 # Previa do Projeto nas versões para Desktop, Tablet e Mobile:
