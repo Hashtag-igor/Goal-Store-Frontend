@@ -1,19 +1,17 @@
 # Goal Store Shirts - parte Frontend
 
-### Backend:
+### Sobre: 
 
-    Primeiro certifique-se que o Goal-Store-Backend está rodando;
-    Acesse e clone o repositório: https://github.com/Hashtag-igor/Goal-Store-Backend;
-    Após clonar-lo, abra o repositório no VSCode, vá no terminal e digite: npm run server;
-    Após fazer isso, deixe o VSCode aberto e abra em outro VSCode o Goal-Store-Frontend;
+Neste projeto pessoal, utilizei uma combinação de tecnologias de ponta, incluindo React para o frontend, Node.js para o backend e MongoDB como banco de dados. No backend, desenvolvi minha própria API dedicada a camisetas de times de futebol e integrei-a de forma eficaz ao frontend. Isso me permitiu criar diversas páginas na aplicação de acordo com os requisitos específicos de cada uma delas. Um aspecto chave deste projeto foi a integração com o MongoDB, que me permitiu estabelecer um sólido esquema para armazenar informações de usuários no banco de dados. Isso possibilitou a criação de um formulário de registro e login para os usuários da aplicação. Uma vez que um usuário faz o login em sua conta, ele ganha acesso completo a todas as funcionalidades da aplicação sem a necessidade de se desconectar. Para os visitantes que optam por não criar uma conta, eles ainda podem explorar o projeto, mas a funcionalidade de adicionar produtos ao carrinho fica restrita. Adicionalmente, os usuários não logados são impedidos de acessar áreas restritas destinadas a usuários autenticados.
 
-### Frontend:
+### Tecnologias Utilizadas:
 
-    Vá no terminal e digite: npm run dev;
+React, Node.js e MongoDB.
 
-### Resumo:
 
-    Com o Backend rodando, no seu frontend você consiguirá consumir a API dos produtos e dos usuarios do seu backend;
+### Acesse o projeto completo:
+
+https://goalstore.vercel.app/
 
 
 # Previa do Projeto nas versões para Desktop, Tablet e Mobile:
